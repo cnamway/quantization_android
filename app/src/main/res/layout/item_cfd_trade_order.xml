@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemCfdTradeOrderViewModel"
+            type="com.example.modulecfd.pojo.CfdTradeOrderResult.DataBean.RecordsBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@{itemCfdTradeOrderViewModel.formatSide()}"
+                    android:textColor="@{itemCfdTradeOrderViewModel.isSideUp() ? @color/green : @color/orange}"/>
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_marginLeft="32dp"
+                    android:layout_weight="1"
+                    android:text="@{itemCfdTradeOrderViewModel.formatDate()}"/>
+
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginTop="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:text="@string/open_type"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatOpenType()}"
+                        android:textSize="@dimen/font_mini"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/margin"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatMarginPrice()}"
+                        android:textSize="@dimen/font_mini"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/position_charge"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatHoldFee()}"
+                        android:textSize="@dimen/font_mini"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:text="@string/trade_coin"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatTradeSymbol()}"
+                        android:textSize="@dimen/font_mini"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/open_fee"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatOpenFee()}"
+                        android:textSize="@dimen/font_mini"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/statue"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatStatue()}"
+                        android:textSize="@dimen/font_mini"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trade_number"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatVolume()}"
+                        android:textSize="@dimen/font_mini"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/close_fee"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatCloseFee()}"
+                        android:textSize="@dimen/font_mini"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/profitloss"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_marginTop="8dp"
+                        android:text="@{itemCfdTradeOrderViewModel.formatProfitAndloss()}"
+                        android:textSize="@dimen/font_mini"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="authenticationViewModel"
+            type="com.spark.qtz.app.me.safe.authentication.AuthenticationViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/authentication_title"
+            layout="@layout/view_title"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--未认证-->
+            <LinearLayout
+                android:id="@+id/ll_no_auth"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.spark.qtz.ui.tablayout.SlidingTabLayout
+                    android:id="@+id/authentication_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/white"
+                    app:tl_indicator_color="#000000"
+                    app:tl_indicator_height="2dp"
+                    app:tl_indicator_width_equal_title="true"
+                    app:tl_tab_padding="6dp"
+                    app:tl_textBold="BOTH"
+                    app:tl_textSelectColor="#000000"
+                    app:tl_textUnselectColor="#94374155"
+                    app:tl_textsize="@dimen/font_xlager"/>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/authentication_vp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <!--已经认证-->
+            <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+                android:id="@+id/ll_authed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/gray_ccc"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="16dp"
+                        android:visibility="@{authenticationViewModel.isSubmitError ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:text="@{authenticationViewModel.submitErrorText}"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/ll_item_64"
+                    android:layout_height="52dp">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="72dp"
+                        android:text="@string/name"/>
+
+                    <EditText
+                        style="@style/textBlackSmall"
+                        android:layout_width="match_parent"
+                        android:background="@null"
+                        android:enabled="@{authenticationViewModel.isSubmitError}"
+                        android:text="@={authenticationViewModel.userName}"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginLeft="16dp"/>
+
+                <LinearLayout
+                    style="@style/ll_item_64"
+                    android:layout_height="52dp">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="72dp"
+                        android:text="@{authenticationViewModel.authType}"/>
+
+                    <EditText
+                        style="@style/textBlackSmall"
+                        android:layout_width="match_parent"
+                        android:background="@null"
+                        android:enabled="@{authenticationViewModel.isSubmitError}"
+                        android:text="@={authenticationViewModel.authNum}"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/front_photo_of_the_document"/>
+
+                        <ImageView
+                            android:id="@+id/img_auth_up"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:clickable="false"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/svg_auth_up"
+                            binding:url="@{authenticationViewModel.imgAuthUp}"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/handheld_photo_of_the_document"/>
+
+                        <ImageView
+                            android:id="@+id/img_auth_handheld"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:clickable="false"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/svg_auth_handheld"
+                            binding:url="@{authenticationViewModel.imgAuthHandheld}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_back"
+                        android:layout_width="match_parent"
+                        android:layout_height="144dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/textGrayCommonSmall"
+                                android:text="@string/back_photo_of_the_document"/>
+
+                            <ImageView
+                                android:id="@+id/img_auth_down"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="8dp"
+                                android:clickable="false"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/svg_auth_down"
+                                binding:url="@{authenticationViewModel.imgAuthDown}"/>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="16dp"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/submit"
+                    style="@style/textBlackNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_margin="16dp"
+                    android:enabled="@{authenticationViewModel.isSubmitError}"
+                    android:gravity="center"
+                    android:text="@{authenticationViewModel.auditStatus}"
+                    android:textStyle="bold"
+                    app:bl_corners_radius="4dp"
+                    app:bl_solid_color="@color/base"/>
+            </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="registerPwdViewModel"
+            type="com.spark.qtz.app.me.user.register.password.RegisterPwdViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/register_pwd_title"
+            layout="@layout/view_title"/>
+
+        <TextView
+            style="@style/textBlackLarge"
+            android:layout_marginTop="48dp"
+            android:text="@string/pwd_setting"
+            android:textSize="@dimen/sp_30"/>
+
+        <TextView
+            style="@style/textBlackNormal"
+            android:layout_margin="16dp"
+            android:text="@string/pwd_tip"
+            android:textColor="@color/gray_70"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/pwd_login"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:layout_marginLeft="16dp"
+                        android:hint="@string/pwd_login_setting"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:padding="4dp"
+                        android:text="@={registerPwdViewModel.passWord}"
+                        android:textSize="@dimen/font_normal"/>
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/pwd_ensure"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:layout_marginLeft="16dp"
+                        android:hint="@string/pwd_again"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:padding="4dp"
+                        android:text="@={registerPwdViewModel.passWordAgain}"
+                        android:textSize="@dimen/font_normal"/>
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/invite_code"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:layout_marginLeft="16dp"
+                        android:hint="@string/invite_code_hint"
+                        android:maxLength="20"
+                        android:padding="4dp"
+                        android:text="@={registerPwdViewModel.inviteCode}"
+                        android:textSize="@dimen/font_normal"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/register"
+            style="@style/textBlackNormal"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/register"
+            android:textStyle="bold"
+            app:bl_corners_radius="4dp"
+            app:bl_pressed_color="@color/base_dark"
+            app:bl_unpressed_color="@color/base"
+            binding:onClickCommand="@{registerPwdViewModel.registerOnClickCommand}"/>
+
+        <TextView
+            style="@style/textGrayCommonSmall"
+            android:text="@string/register_tip"
+            android:textSize="@dimen/font_mini"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:text="@string/register_clause"
+                android:textColor="#4D4BA5"
+                android:textSize="@dimen/font_mini"
+                android:textStyle="bold"
+                binding:onClickCommand="@{registerPwdViewModel.registerClauseOnClickCommand}"/>
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="3dp"
+                android:layout_margin="4dp"
+                app:bl_corners_radius="2dp"
+                app:bl_solid_color="#4D4BA5"/>
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:text="@string/register_rivacy"
+                android:textColor="#4D4BA5"
+                android:textSize="@dimen/font_mini"
+                android:textStyle="bold"
+                binding:onClickCommand="@{registerPwdViewModel.registerRivacyOnClickCommand}"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <import type="com.spark.qtz.R"/>
+
+        <variable
+            name="lcOrderPaidDetailsViewModel"
+            type="com.spark.qtz.app.trade.legal_currency.order.details.paid.LcOrderPaidDetailsViewModel"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/commission_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/fake_status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+            <!--title-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:orientation="horizontal">
+
+                <ImageView
+                    onClickCommand="@{lcOrderPaidDetailsViewModel.finishClickCommand}"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:src="@drawable/svg_back_white"
+                    app:bl_ripple_color="@color/kline_bg_light"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/commission_bg"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_lager"/>
+
+                <TextView
+                    android:id="@+id/title_right_tv"
+                    onClickCommand="@{lcOrderPaidDetailsViewModel.titleRightOnClickCommand}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingRight="12dp"
+                    android:text="@{lcOrderPaidDetailsViewModel.titleRightTV}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_small"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:orientation="vertical"
+                        android:paddingBottom="12dp"
+                        android:paddingTop="12dp"
+                        app:bl_corners_radius="4dp"
+                        app:bl_solid_color="@color/white">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:text="@{lcOrderPaidDetailsViewModel.money}"
+                                android:textSize="@dimen/font_xxlager"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="12dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="@{lcOrderPaidDetailsViewModel.typeTips}"
+                                android:textColor="@{lcOrderPaidDetailsViewModel.isBuyOrSell ? @color/green : @color/gray_common}"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="6dp"
+                                    android:layout_height="12dp"
+                                    app:bl_corners_bottomRightRadius="6dp"
+                                    app:bl_corners_topRightRadius="6dp"
+                                    app:bl_solid_color="@color/commission_bg"/>
+
+                                <View
+                                    style="@style/line_ccc"
+                                    android:layout_weight="1"/>
+
+                                <View
+                                    android:layout_width="6dp"
+                                    android:layout_height="12dp"
+                                    app:bl_corners_bottomLeftRadius="6dp"
+                                    app:bl_corners_topLeftRadius="6dp"
+                                    app:bl_solid_color="@color/commission_bg"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/ll_item_56">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:gravity="center"
+                                android:text="@{lcOrderPaidDetailsViewModel.nameShort}"
+                                android:textStyle="bold"
+                                app:bl_corners_radius="20dp"
+                                app:bl_solid_color="@color/base"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/textBlackNormal"
+                                    android:text="@{lcOrderPaidDetailsViewModel.name}"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:layout_marginTop="4dp"
+                                    android:text="@{lcOrderPaidDetailsViewModel.tradeUserTips}"/>
+                            </LinearLayout>
+
+                            <TextView
+                                onClickCommand="@{lcOrderPaidDetailsViewModel.chatOnClickCommand}"
+                                style="@style/textGrayCommonNormal"
+                                android:layout_marginLeft="12dp"
+                                android:drawableLeft="@drawable/svg_communicate"
+                                android:drawablePadding="4dp"
+                                android:paddingBottom="6dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingTop="6dp"
+                                android:text="@string/str_go_chat"
+                                app:bl_corners_radius="4dp"
+                                app:bl_solid_color="@color/white"
+                                app:bl_stroke_color="@color/gray_common"
+                                app:bl_stroke_width="1px"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <View
+                                style="@style/line_ccc"/>
+
+                            <LinearLayout
+                                style="@style/ll_item_48">
+
+                                <TextView
+                                    style="@style/textBlackNormal"
+                                    android:layout_weight="1"
+                                    android:text="@string/str_paypay"
+                                    android:textStyle="bold"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/svg_wechatpay"
+                                    android:visibility="@{lcOrderPaidDetailsViewModel.isWeChatPay ? View.VISIBLE : View.GONE}"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:src="@drawable/svg_alipay"
+                                    android:visibility="@{lcOrderPaidDetailsViewModel.isAliPay ? View.VISIBLE : View.GONE}"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:src="@drawable/svg_bankpay"
+                                    android:visibility="@{lcOrderPaidDetailsViewModel.isBankPay ? View.VISIBLE : View.GONE}"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:src="@drawable/svg_pay_paypal"
+                                    android:visibility="@{lcOrderPaidDetailsViewModel.isPayPalPay ? View.VISIBLE : View.GONE}"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_weight="1"
+                                android:text="@string/str_price_single"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:text="@{lcOrderPaidDetailsViewModel.price}"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_weight="1"
+                                android:text="@string/number"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:text="@{lcOrderPaidDetailsViewModel.number}"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_weight="1"
+                                android:text="@string/str_money"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:text="@{lcOrderPaidDetailsViewModel.money2}"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_weight="1"
+                                android:text="@string/str_createtime"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:text="@{lcOrderPaidDetailsViewModel.createTime}"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:text="@string/str_order_sn"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="@{lcOrderPaidDetailsViewModel.orderSn}"/>
+
+                            <ImageView
+                                onClickCommand="@{lcOrderPaidDetailsViewModel.orderSnOnClickCommand}"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_marginLeft="8dp"
+                                android:src="@drawable/svg_copy"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:text="@string/str_reference_sn"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="@{lcOrderPaidDetailsViewModel.referenceSn}"/>
+
+                            <ImageView
+                                onClickCommand="@{lcOrderPaidDetailsViewModel.referenceSnOnClickCommand}"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_marginLeft="8dp"
+                                android:src="@drawable/svg_copy"/>
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            onClickCommand="@{lcOrderPaidDetailsViewModel.submitOnClickCommand}"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_margin="16dp"
+                            android:gravity="center"
+                            android:text="@{lcOrderPaidDetailsViewModel.btnTV}"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            app:bl_corners_radius="4dp"
+                            app:bl_pressed_color="@color/base_dark"
+                            app:bl_unpressed_color="@color/base"
+                            tools:ignore="MissingPrefix"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v4.widget.NestedScrollView>
+
+        </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+    </LinearLayout>
+</layout>

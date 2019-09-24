@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="inviteViewModel"
+            type="com.spark.qtz.app.invite.InviteViewModel"/>
+    </data>
+
+    <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+        android:id="@+id/root_invite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/poster_root"
+                android:layout_width="match_parent"
+                android:layout_height="456dp"
+                android:background="@drawable/poster_bg"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/textGrayCommonNormal"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/invite_share_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_xxlager"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/website_url"
+                    style="@style/textGrayCommonNormal"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/gray_common"
+                    android:paddingLeft="24dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="24dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="72dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginRight="72dp"
+                        app:bl_solid_color="@color/transparent"
+                        app:bl_stroke_color="@color/gray_common"
+                        app:bl_stroke_width="1px"
+                        tools:ignore="MissingPrefix">
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/textGrayCommonNormal"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/invite_share_code"
+                        android:textSize="@dimen/font_lager"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/invite_code"
+                        style="@style/textBlackNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="32dp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_lager"
+                        android:textStyle="bold"/>
+                </FrameLayout>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="164dp"
+                    android:layout_height="164dp"
+                    android:layout_marginTop="24dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="4dp">
+
+                    <ImageView
+                        android:id="@+id/qr_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </android.support.v7.widget.CardView>
+
+
+                <TextView
+                    style="@style/textBlackFont13"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/invite_qrcode"
+                    android:textColor="@color/gray_common"/>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/base">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="16dp">
+
+                    <ImageView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginTop="36dp"
+                        android:src="@drawable/svg_invite_top"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/invite_title"
+                        android:textSize="@dimen/font_lager"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="@string/invite_content"
+                        android:textSize="@dimen/font_small"/>
+
+                    <LinearLayout
+                        android:id="@+id/invite_friend"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="24dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:bl_corners_radius="4dp"
+                        app:bl_pressed_color="#000000"
+                        app:bl_unpressed_color="#D7000000">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/svg_invite_friend"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/invite_friend"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_lager"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="vertical"
+                        app:bl_corners_radius="4dp"
+                        app:bl_solid_color="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="96dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{inviteViewModel.inviteFriendNum}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/font_xlager"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="@string/invited_man_num"
+                                    android:textColor="@color/gray_common"
+                                    android:textSize="@dimen/font_13"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{inviteViewModel.inviteMoney}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/font_xlager"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="@string/rebated"
+                                    android:textColor="@color/gray_common"
+                                    android:textSize="@dimen/font_13"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <LinearLayout
+                            onClickCommand="@{inviteViewModel.copyShareLinkCommond}"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="24dp"
+                            app:bl_ripple_color="@color/gray_ccc"
+                            app:bl_ripple_enable="true"
+                            app:bl_solid_color="@color/white">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/svg_paste"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="8dp"
+                                android:text="@string/paste_share"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <LinearLayout
+                            onClickCommand="@{inviteViewModel.posterCommond}"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="24dp"
+                            app:bl_ripple_color="@color/gray_ccc"
+                            app:bl_ripple_enable="true"
+                            app:bl_solid_color="@color/white">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/svg_generate_poster"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="8dp"
+                                android:text="@string/generate_poster"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <LinearLayout
+                            onClickCommand="@{inviteViewModel.rulesCommond}"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="24dp"
+                            android:paddingRight="24dp"
+                            app:bl_corners_bottomLeftRadius="4dp"
+                            app:bl_corners_bottomRightRadius="4dp"
+                            app:bl_ripple_color="@color/gray_ccc"
+                            app:bl_ripple_enable="true"
+                            app:bl_solid_color="@color/white">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:text="@string/view_rules"
+                                android:textColor="@color/gray_common"
+                                android:textSize="@dimen/font_13"
+                                android:textStyle="bold"/>
+
+                            <ImageView
+                                style="@style/imgEnter"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
+    </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+</layout>

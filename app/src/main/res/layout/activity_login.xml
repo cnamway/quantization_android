@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="com.spark.qtz.app.me.user.login.LoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/icon_login_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/login_title"
+            layout="@layout/view_title"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/icon_login_logo" />
+
+        <TextView
+            style="@style/textBlackLarge"
+            android:text="@string/str_login_tag1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_xxlager" />
+
+        <TextView
+            style="@style/textBlackNormal"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/str_login_tag2"
+            android:textColor="@color/gray_fb"
+            android:textSize="@dimen/font_xmini" />
+
+        <!--<android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/et_bg"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_marginRight="@dimen/dp_40"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                app:bl_corners_radius="4dp"
+                app:bl_solid_color="@color/half_transparent">
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/user_count_hint"
+                    android:maxLines="1"
+                    android:paddingLeft="16dp"
+                    android:text="@={loginViewModel.userName}"
+                    android:textSize="@dimen/font_normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                app:bl_corners_radius="4dp"
+                app:bl_solid_color="@color/half_transparent">
+
+                <EditText
+                    android:id="@+id/user_password"
+                    style="@style/trade_input"
+                    android:hint="@string/user_password_hint"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingLeft="16dp"
+                    android:text="@={loginViewModel.userPassWord}"
+                    android:textSize="@dimen/font_normal" />
+
+                <ImageView
+                    android:id="@+id/pwd_switch"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:padding="16dp"
+                    android:src="@mipmap/icon_viliable"
+                    binding:onClickCommand="@{loginViewModel.pwdSwitchOnClickCommand}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                app:bl_corners_radius="4dp"
+                app:bl_solid_color="@color/half_transparent">
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/verify_code_hint"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingLeft="16dp"
+                    android:text="@={loginViewModel.verifyCode}"
+                    android:textSize="@dimen/font_normal" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <TextView
+                        android:id="@+id/get_sms_code"
+                        style="@style/textGrayCommonSmall"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/dp_10"
+                        android:paddingRight="@dimen/dp_10"
+                        android:text="@string/send_verify_code"
+                        android:textColor="@color/white"
+                        app:bl_corners_radius="4dp"
+                        app:bl_solid_color="@color/base_dark" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_countdownView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <cn.iwgang.countdownview.CountdownView
+                            android:id="@+id/countdownView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:isShowHour="false"
+                            app:isShowMinute="false"
+                            app:isShowSecond="true"
+                            app:suffixGravity="center"
+                            app:timeTextColor="@color/gray_common"
+                            app:timeTextSize="@dimen/font_small" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/resend_load" />
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--</android.support.v7.widget.CardView>-->
+
+        <TextView
+            style="@style/textBlackNormal"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_marginRight="@dimen/dp_40"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:bl_corners_radius="4dp"
+            app:bl_ripple_color="@color/gray_ccc"
+            app:bl_ripple_enable="true"
+            app:bl_solid_color="@color/color_blue"
+            binding:onClickCommand="@{loginViewModel.loginOnClickCommand}" />
+
+    </LinearLayout>
+</layout>

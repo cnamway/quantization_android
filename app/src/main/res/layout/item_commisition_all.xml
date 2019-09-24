@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="baseViewModel"
+            type="me.spark.mvvm.base.BaseViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"
+                    android:text=""/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="@string/undo"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:text="@string/str_price_cny"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/undo"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:text="@string/str_amount_btc"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/undo"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:text="@string/str_money_acturl"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/undo"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

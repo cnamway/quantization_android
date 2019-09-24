@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="propertyViewModel"
+            type="com.spark.qtz.app.me.finance.property.PropertyViewModel"/>
+    </data>
+
+    <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/fake_status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="match_parent"
+                android:padding="15dp"
+                android:src="@drawable/svg_back"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white"
+                binding:onClickCommand="@{propertyViewModel.finishOnClickCommand}"/>
+
+            <com.spark.qtz.ui.tablayout.SlidingTabLayout
+                android:id="@+id/property_tab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:paddingLeft="48dp"
+                android:paddingRight="48dp"
+                app:tl_indicator_color="#000000"
+                app:tl_indicator_height="2dp"
+                app:tl_indicator_width_equal_title="true"
+                app:tl_tab_padding="6dp"
+                app:tl_tab_space_equal="true"
+                app:tl_textSelectColor="#000000"
+                app:tl_textUnselectColor="#94374155"
+                app:tl_textsize="@dimen/font_small"/>
+
+            <View
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/property_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+</layout>

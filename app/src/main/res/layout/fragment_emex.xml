@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="emexViewModel"
+            type="com.spark.qtz.app.emex.EmexViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/view_title" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+                android:id="@+id/emex_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/nestedScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <!--搜索-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            app:bl_corners_radius="26dp"
+                            app:bl_solid_color="@color/et_bg">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@mipmap/icon_search" />
+
+                            <EditText
+                                android:id="@+id/etSearch"
+                                style="@style/trade_input"
+                                android:layout_marginLeft="16dp"
+                                android:hint="@string/str_input_id"
+                                android:imeOptions="actionSearch"
+                                android:maxLines="1"
+                                android:padding="4dp"
+                                android:text="@={emexViewModel.searchInfo}"
+                                android:textSize="@dimen/font_normal" />
+
+                            <ImageView
+                                binding:onClickCommand="@{emexViewModel.closeOnClickCommand}"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@mipmap/icon_close" />
+
+                        </LinearLayout>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </android.support.v4.widget.NestedScrollView>
+            </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+</layout>

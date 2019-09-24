@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dealBuyViewModel"
+            type="com.spark.modulespot.pojo.DealResult.DataBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/kline_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_width="40dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:text="@{dealBuyViewModel.formatTime()}"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginLeft="12dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:text="@{dealBuyViewModel.formatType()}"
+                    android:textColor="@{dealBuyViewModel.isBuy() ? @color/green : @color/orange}"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_width="40dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:text="@{dealBuyViewModel.formatPrice()}"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:text="@{dealBuyViewModel.formatNumber()}"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

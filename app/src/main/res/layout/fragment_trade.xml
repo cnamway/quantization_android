@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="tradeViewModel"
+            type="com.spark.qtz.app.trade.TradeViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="vertical">
+
+            <com.spark.qtz.ui.tablayout.SegmentTabLayout
+                android:id="@+id/trade_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                app:tl_bar_color="@color/white"
+                app:tl_indicator_color="@color/gray_common"
+                app:tl_indicator_corner_radius="30dp"
+                app:tl_tab_padding="14dp"/>
+        </LinearLayout>
+
+
+        <View
+            style="@style/line_ccc"/>
+
+        <com.spark.qtz.ui.NoScrollViewPager
+            android:id="@+id/trade_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</layout>

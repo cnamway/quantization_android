@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="quotesViewModel"
+            type="com.spark.qtz.app.quotes.QuotesViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/view_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_main"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/llTabEmex"
+                    style="@style/layout_tab_bottom_main"
+                    app:bl_selected_drawable="@drawable/shape_index_statictis_selected"
+                    app:bl_unSelected_drawable="@drawable/shape_index_statictis_unselected"
+                    binding:onClickCommand="@{quotesViewModel.emexOnClickCommand}"
+                    tools:ignore="MissingPrefix">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:text="总用户资产走势图"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="@dimen/dp_10" />
+
+                <LinearLayout
+                    android:id="@+id/llTabQuotes"
+                    style="@style/layout_tab_bottom_main"
+                    app:bl_selected_drawable="@drawable/shape_index_statictis_selected"
+                    app:bl_unSelected_drawable="@drawable/shape_index_statictis_unselected"
+                    binding:onClickCommand="@{quotesViewModel.quotesOnClickCommand}"
+                    tools:ignore="MissingPrefix">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:text="单用户资产走势图"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/llToday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    binding:bl_ripple_color="@color/gray_ccc"
+                    binding:bl_ripple_enable="true"
+                    binding:bl_solid_color="@color/transparent"
+                    tools:ignore="MissingPrefix">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/index_statictis_selector" />
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:text="当天"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="@dimen/dp_10" />
+
+                <LinearLayout
+                    android:id="@+id/llYesterday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    binding:bl_ripple_color="@color/gray_ccc"
+                    binding:bl_ripple_enable="true"
+                    binding:bl_solid_color="@color/transparent"
+                    tools:ignore="MissingPrefix">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/index_statictis_selector" />
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:text="昨天"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="@dimen/dp_10"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/llID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:drawableRight="@mipmap/icon_down"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_10"
+                    android:text="@{quotesViewModel.ids}"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                app:bl_corners_radius="@dimen/dp_4"
+                app:bl_solid_color="@color/et_bg">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:text="@{quotesViewModel.dateTime}"
+                    android:textColor="@color/white" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_10"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/llCalendar"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/icon_calendar" />
+
+            </LinearLayout>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/transparent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

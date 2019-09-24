@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="indexViewModel"
+            type="com.spark.qtz.app.IndexViewModel" />
+    </data>
+
+    <!--主界面-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/fake_status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <FrameLayout
+            android:id="@+id/fragment_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/bg_main" />
+
+        <View
+            style="@style/line_ccc"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/llTab"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/main_color"
+            android:orientation="horizontal">
+
+            <!--账户监控-->
+            <LinearLayout
+                android:id="@+id/llTabEmex"
+                style="@style/layout_tab_bottom_main"
+                binding:bl_ripple_color="@color/gray_ccc"
+                binding:bl_ripple_enable="true"
+                binding:bl_solid_color="@color/transparent"
+                binding:onClickCommand="@{indexViewModel.emexOnClickCommand}">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/tab_emex_selector" />
+
+                <TextView
+                    style="@style/tab_bottom_main"
+                    android:text="@string/str_index_1" />
+            </LinearLayout>
+
+            <!--运营统计-->
+            <LinearLayout
+                android:id="@+id/llTabQuotes"
+                style="@style/layout_tab_bottom_main"
+                binding:bl_ripple_color="@color/gray_ccc"
+                binding:bl_ripple_enable="true"
+                binding:bl_solid_color="@color/transparent"
+                binding:onClickCommand="@{indexViewModel.quotesOnClickCommand}">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/tab_quotes_selector" />
+
+                <TextView
+                    style="@style/tab_bottom_main"
+                    android:text="@string/str_index_2" />
+            </LinearLayout>
+
+            <!--个人中心-->
+            <LinearLayout
+                android:id="@+id/llTabMe"
+                style="@style/layout_tab_bottom_main"
+                binding:bl_ripple_color="@color/gray_ccc"
+                binding:bl_ripple_enable="true"
+                binding:bl_solid_color="@color/transparent"
+                binding:onClickCommand="@{indexViewModel.meOnClickCommand}">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/tab_me_selector" />
+
+                <TextView
+                    style="@style/tab_bottom_main"
+                    android:text="@string/str_index_3" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

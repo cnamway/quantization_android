@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="lockPropertyDetailsResult"
+            type="com.spark.ucclient.pojo.LockProoertDetailsResult.DataBean.RecordsBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="@string/str_lock_up"
+                    android:textColor="@color/green"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:text="@{lockPropertyDetailsResult.formatDate()}"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="16dp"
+                    android:text="@{lockPropertyDetailsResult.formatType}"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="@{lockPropertyDetailsResult.formatAmount()}"/>
+
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="right"
+                    android:layout_weight="1"
+                    android:text="@{lockPropertyDetailsResult.formatReleaseAmount()}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="@string/str_lock_up_amount"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_width="60dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="right"
+                    android:text="@string/str_release_amount"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

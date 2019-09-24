@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="meViewModel"
+            type="com.spark.qtz.app.me.MeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/view_title" />
+
+        <!--<android.support.v4.widget.SwipeRefreshLayout-->
+        <!--android:id="@+id/swipeLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+            android:id="@+id/emex_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        app:bl_corners_radius="@dimen/dp_4"
+                        app:bl_solid_color="@color/et_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/textBlackSmall"
+                                android:text="@string/str_me_1"
+                                android:textColor="@color/color_bottom_unselected" />
+
+                            <TextView
+                                style="@style/textBlackLarge"
+                                android:layout_marginTop="@dimen/dp_10"
+                                android:text="test"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc_vertical"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/gray_common" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/textBlackSmall"
+                                android:text="@string/str_me_2"
+                                android:textColor="@color/color_bottom_unselected" />
+
+                            <TextView
+                                style="@style/textBlackLarge"
+                                android:layout_marginTop="@dimen/dp_10"
+                                android:text="100"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!--版本更新-->
+                    <LinearLayout
+                        style="@style/meItem"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:layout_marginTop="16dp"
+                        app:bl_ripple_color="@color/gray_ccc"
+                        app:bl_ripple_enable="true"
+                        binding:onClickCommand="@{meViewModel.versionUpdateClickCommand}">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@string/version_update"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{meViewModel.versionName}"
+                            android:textSize="@dimen/font_13" />
+
+                        <ImageView
+                            style="@style/imgEnter"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@color/gray_common" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+
+                    <TextView
+                        android:id="@+id/tvLogout"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginBottom="@dimen/dp_40"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center"
+                        android:text="@string/loginout"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_normal"
+                        app:bl_corners_radius="@dimen/dp_4"
+                        app:bl_ripple_color="@color/gray_ccc"
+                        app:bl_ripple_enable="true"
+                        app:bl_solid_color="@color/color_blue"
+                        binding:onClickCommand="@{meViewModel.logoutOnClickCommand}" />
+                </LinearLayout>
+
+            </android.support.v4.widget.NestedScrollView>
+        </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+        <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+    </LinearLayout>
+</layout>

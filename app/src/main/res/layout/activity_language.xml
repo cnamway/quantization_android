@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="languageViewModel"
+            type="com.spark.qtz.app.me.system.language.LanguageViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/language_title"
+            layout="@layout/view_title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textBlackSmall"
+                android:layout_marginLeft="16dp"
+                android:text="@string/language_selection"
+                android:textSize="@dimen/sp_30"
+                android:textStyle="bold"/>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginTop="16dp"/>
+
+
+            <LinearLayout
+                android:id="@+id/ll_chinese"
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"
+                    android:text="@string/simplified_chinese"/>
+
+                <com.spark.qtz.ui.SmoothCheckBox
+                    android:id="@+id/chinese"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:color_checked="@color/base"
+                    app:color_unchecked_stroke="@color/gray_ccc"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <LinearLayout
+                android:id="@+id/ll_english"
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"
+                    android:text="@string/str_english"/>
+
+                <com.spark.qtz.ui.SmoothCheckBox
+                    android:id="@+id/english"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:color_checked="@color/base"
+                    app:color_unchecked_stroke="@color/gray_ccc"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

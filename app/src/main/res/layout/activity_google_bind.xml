@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="googleBindViewModel"
+            type="com.spark.qtz.app.me.safe.safecentre.google.step2.GoogleBindViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/google_bind_title"
+            layout="@layout/view_title" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/google_bind"
+                    android:textSize="@dimen/sp_30"
+                    android:textStyle="bold" />
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginTop="16dp" />
+
+                <!--step1-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textStyle="bold"
+                            app:bl_corners_radius="14dp"
+                            app:bl_solid_color="@color/base" />
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="12dp"
+                            android:gravity="center"
+                            android:text="@string/download_and_install"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="28dp"
+                            android:layout_height="@dimen/dp_10" />
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_marginLeft="12dp"
+                            android:text="@string/download_and_install_tips"
+                            android:textColor="@color/gray_51" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View style="@style/line_ccc" />
+
+                <!--step2-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textStyle="bold"
+                            app:bl_corners_radius="14dp"
+                            app:bl_solid_color="@color/base" />
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="12dp"
+                            android:gravity="center"
+                            android:text="@string/enter_key"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="28dp"
+                            android:layout_height="@dimen/dp_10" />
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_marginLeft="12dp"
+                            android:text="@string/enter_key_tips"
+                            android:textColor="@color/gray_51" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="28dp"
+                            android:layout_height="@dimen/dp_10" />
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_marginTop="16dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <TextView
+                                    style="@style/textBlackNormal"
+                                    android:layout_weight="1"
+                                    android:text="@={googleBindViewModel.googleKey}"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    style="@style/textBlackNormal"
+                                    binding:onClickCommand="@{googleBindViewModel.copyOnClickCommand}"
+                                    android:text="@string/copy"
+                                    android:textColor="@color/blue" />
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View style="@style/line_ccc" />
+
+                <!--step3-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textStyle="bold"
+                            app:bl_corners_radius="14dp"
+                            app:bl_solid_color="@color/base" />
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="12dp"
+                            android:gravity="center"
+                            android:text="@string/verification"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="28dp"
+                            android:layout_height="@dimen/dp_10" />
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_marginLeft="12dp"
+                            android:text="@string/google_verification_tips"
+                            android:textColor="@color/gray_51" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View style="@style/line_ccc" />
+
+                <LinearLayout style="@style/ll_item_52">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="84dp"
+                        android:text="@string/google_code" />
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:hint="@string/google_code_hint"
+                        android:inputType="number"
+                        android:text="@={googleBindViewModel.googleCode}"
+                        android:textSize="@dimen/font_normal" />
+
+                </LinearLayout>
+
+                <View style="@style/line_ccc" />
+
+                <LinearLayout style="@style/ll_item_52">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="84dp"
+                        android:text="@string/sms_code" />
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:hint="@string/verify_code_hint"
+                        android:inputType="number"
+                        android:text="@={googleBindViewModel.smsCode}"
+                        android:textSize="@dimen/font_normal" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="12dp">
+
+                        <TextView
+                            android:id="@+id/get_sms_code"
+                            style="@style/textGrayCommonSmall"
+                            binding:onClickCommand="@{googleBindViewModel.getCodeOnClickCommand}"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right"
+                            android:gravity="center"
+                            android:text="@string/get_verify_code"
+                            android:visibility="visible" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_countdownView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <cn.iwgang.countdownview.CountdownView
+                                android:id="@+id/countdownView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:isShowHour="false"
+                                app:isShowMinute="false"
+                                app:isShowSecond="true"
+                                app:suffixGravity="center"
+                                app:timeTextColor="@color/gray_common"
+                                app:timeTextSize="@dimen/font_small" />
+
+                            <TextView
+                                style="@style/textGrayCommonSmall"
+                                android:text="@string/resend_load" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <View style="@style/line_ccc" />
+
+                <LinearLayout style="@style/ll_item_42">
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:text="@={googleBindViewModel.phoneNum}" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    binding:onClickCommand="@{googleBindViewModel.submitOnClickCommand}"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_margin="16dp"
+                    android:gravity="center"
+                    android:text="@string/confirm_open"
+                    android:textStyle="bold"
+                    app:bl_corners_radius="4dp"
+                    app:bl_pressed_color="@color/base_dark"
+                    app:bl_unpressed_color="@color/base" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

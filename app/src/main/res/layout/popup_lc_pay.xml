@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              app:bl_corners_topLeftRadius="14dp"
+              app:bl_corners_topRightRadius="14dp"
+              app:bl_solid_color="@color/gray_456">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/textBlackNormal"
+            android:layout_gravity="center"
+            android:text="@string/confirm_order"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/title_sub"
+            style="@style/textGrayCommonSmall"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/gray_common"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/ll_item_52"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:text="@string/str_buy_price"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/textGrayCommonSmall"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/ll_item_52"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:text="@string/str_buy_number"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/num"
+            style="@style/textGrayCommonSmall"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/ll_item_52"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:text="@string/str_buy_money_all"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/account"
+            style="@style/textGrayCommonSmall"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_wechat"
+        style="@style/ll_item_52"
+        android:visibility="gone"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/svg_wechatpay"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:text="@string/str_wechat"/>
+
+        <com.spark.qtz.ui.SmoothCheckBox
+            android:id="@+id/wechat_cb"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:color_checked="@color/base"
+            app:color_unchecked_stroke="@color/gray_ccc"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_alipay"
+        style="@style/ll_item_52"
+        android:visibility="gone"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/svg_alipay"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:text="@string/str_alipay"/>
+
+        <com.spark.qtz.ui.SmoothCheckBox
+            android:id="@+id/alipay_cb"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:color_checked="@color/base"
+            app:color_unchecked_stroke="@color/gray_ccc"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_bank"
+        style="@style/ll_item_52"
+        android:visibility="gone"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/svg_bankpay"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:text="@string/str_bank"/>
+
+        <com.spark.qtz.ui.SmoothCheckBox
+            android:id="@+id/bank_cb"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:color_checked="@color/base"
+            app:color_unchecked_stroke="@color/gray_ccc"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_paypal"
+        style="@style/ll_item_52"
+        android:visibility="gone"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/svg_pay_paypal"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:text="@string/str_paypal"/>
+
+        <com.spark.qtz.ui.SmoothCheckBox
+            android:id="@+id/paypal_cb"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:color_checked="@color/base"
+            app:color_unchecked_stroke="@color/gray_ccc"/>
+    </LinearLayout>
+
+    <View style="@style/line_ccc"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ensure"
+            style="@style/textBlackNormal"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/str_buy_now"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:bl_corners_radius="4dp"
+            app:bl_pressed_color="@color/base_dark"
+            app:bl_unpressed_color="@color/base"
+            tools:ignore="MissingPrefix"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/cancel"
+        style="@style/textGrayCommonNormal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/cancel"
+        app:bl_ripple_color="@color/gray_456"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix"/>
+</LinearLayout>

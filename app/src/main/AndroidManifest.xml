@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.spark.qtz">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions"/>
+
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:enabled="true"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <!--适配-->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="360"/>
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="640"/>
+        <!--适配-->
+
+        <!-- 配置APP ID -->
+        <meta-data
+            android:name="BUGLY_APPID"
+            android:value="004a8ae7da" />
+        <!-- 配置APP版本号 -->
+        <meta-data
+            android:name="BUGLY_APP_VERSION"
+            android:value="3.1.8" />
+        <!-- 配置APP渠道号 -->
+        <meta-data
+            android:name="BUGLY_APP_CHANNEL"
+            android:value="" />
+        <!-- 配置Bugly调试模式（true或者false）-->
+        <meta-data
+            android:name="BUGLY_ENABLE_DEBUG"
+            android:value="true" />
+
+        <activity android:name=".app.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.IndexActivity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".app.me.user.login.LoginActivity"/>
+        <activity android:name=".app.me.user.register.RegisterActivity"/>
+        <activity android:name=".app.me.user.register.password.RegisterPwdActivity"/>
+        <activity android:name=".app.me.finance.property.PropertyActivity"/>
+        <activity android:name=".app.me.finance.record.RecordActivity"/>
+        <activity android:name=".app.me.finance.ad.AdActivity"/>
+        <activity android:name=".app.me.setting.receipt.ReceiptActivity"/>
+        <activity android:name=".app.me.setting.receipt.bind.ReceiptBindActivity"/>
+        <activity android:name=".app.me.safe.authentication.AuthenticationActivity"/>
+        <activity android:name=".app.me.finance.order.OrderActivity"/>
+        <activity android:name=".app.me.safe.safecentre.SafeCentreActivity"/>
+        <activity android:name=".app.me.safe.safecentre.google.step1.GoogleOpenActivity"/>
+        <activity android:name=".app.me.safe.safecentre.email.EmailActivity"/>
+        <activity android:name=".app.me.safe.safecentre.phone.PhoneActivity"/>
+        <activity android:name=".app.me.safe.safecentre.google.step2.GoogleBindActivity"/>
+        <activity android:name=".app.me.setting.coinaddress.add.CoinAddressAddActivity"/>
+        <activity android:name=".app.me.setting.coinaddress.CoinAddressActivity"/>
+        <activity android:name=".app.me.setting.apiinterface.ApiInterfaceActivity"/>
+        <activity android:name=".app.me.system.valuetype.ValueTypeActivity"/>
+        <activity android:name=".app.me.system.about.AboutActivity"/>
+        <activity android:name=".app.me.system.language.LanguageActivity"/>
+        <activity android:name=".app.quotes.search.QuotesSearchActivity"/>
+        <activity android:name=".app.quotes.detail.QuotesDetailActivity"/>
+        <activity android:name=".app.quotes.kline.KlineActivity"/>
+
+        <activity android:name=".app.me.user.register.verificationcode.VerifyCodeActivity"/>
+        <activity android:name=".app.me.safe.safecentre.loginpwd.LoginPwdUpdateActivity"/>
+        <activity android:name=".app.me.user.pwdforget.PwdForgetActivity"/>
+        <activity android:name=".app.me.safe.safecentre.tradepwd.TradePwdActivity"/>
+        <activity android:name=".app.trade.legal_currency.adcreate.AdCreateActivity"/>
+        <activity android:name=".app.quotes.kline.KlineHttpActivity"/>
+        <activity android:name=".app.me.finance.property.details.PropertyDetailsActivity"/>
+        <activity android:name=".app.trade.legal_currency.order.LcOrderActivity"/>
+        <activity android:name=".app.trade.legal_currency.order.details.LcOrderDetailsActivity"/>
+        <activity android:name=".app.trade.currency.openorders.OpenOrdersActivity"/>
+        <activity android:name=".app.trade.currency.openorders.details.CommissionDetailsActivity"/>
+        <activity android:name=".app.trade.legal_currency.order.details.unpay.LcOrderUnpayDetailsActivity"/>
+        <activity android:name=".app.trade.legal_currency.order.details.paid.LcOrderPaidDetailsActivity"/>
+        <activity android:name=".app.trade.legal_currency.order.appeal.LcOrderAppealActivity"/>
+        <activity android:name=".app.trade.legal_currency.order.receiptcode.LcReceiptCodeActivity"/>
+        <activity
+            android:name=".app.trade.legal_currency.chat.ChatActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".app.me.setting.receipt.ReceiSettingActivity"/>
+        <activity android:name=".app.me.finance.property.record.PropertyRecordActivity"/>
+        <activity android:name=".app.trade.legal_currency.adcreate.select_payway.SelectPayWayActivity"/>
+        <activity android:name=".app.trade.contract.kline.CfdKlineActivity"/>
+        <activity android:name=".app.trade.contract.details.CfdDetailsActivity"/>
+        <activity android:name=".app.me.setting.receipt.add.ReceiptAddActivity"/>
+        <activity android:name=".app.emex.web.WebDetailsActivity"/>
+        <activity android:name=".app.me.safe.identity.IdentityActivity"/>
+        <activity android:name=".app.me.safe.safecentre.tradepwd.pwdforget.PwdForgetTradeActivity"/>
+        <activity android:name=".app.me.safe.safecentre.google.remove.GoogleRemoveActivity"/>
+        <activity
+            android:name=".app.quotes.kline.KlineHttpHorizontalActivity"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".app.trade.contract.kline.CfdKlineHorizontalActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".app.me.finance.property.details.PropertyRecordDetailsActivity"/>
+        <activity android:name=".app.emex.details.IndexAccountDetailsActivity" />
+        <activity android:name=".app.emex.details.IndexStrategyDetailsActivity" />
+        <service android:name="com.spark.wsclient.WsService"/>
+        <receiver android:name="com.spark.wsclient.base.NetworkChangedReceiver"/>
+
+    </application>
+
+</manifest>

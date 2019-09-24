@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="phoneViewModel"
+            type="com.spark.qtz.app.me.safe.safecentre.phone.PhoneViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/phone_title"
+            layout="@layout/view_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textBlackSmall"
+                android:layout_marginLeft="16dp"
+                android:text="@string/phone_bind"
+                android:textSize="@dimen/sp_30"
+                android:textStyle="bold" />
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginTop="16dp" />
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="84dp"
+                    android:text="@string/phone_num" />
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/phone_num_hint"
+                    android:text="@={phoneViewModel.phoneNum}"
+                    android:textSize="@dimen/font_normal" />
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                onClickCommand="@{phoneViewModel.chooseCountryOnClickCommand}"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="84dp"
+                    android:text="@string/country" />
+
+                <TextView
+                    android:id="@+id/register_country_code"
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@{phoneViewModel.countryCode}"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/register_country_name"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:drawablePadding="8dp"
+                    android:drawableRight="@drawable/svg_pull_down"
+                    android:gravity="center_vertical"
+                    android:text="@{phoneViewModel.countryName}"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="84dp"
+                    android:text="@string/sms_code" />
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/verify_code_hint"
+                    android:text="@={phoneViewModel.code}"
+                    android:textSize="@dimen/font_normal" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp">
+
+                    <TextView
+                        android:id="@+id/get_sms_code"
+                        style="@style/textGrayCommonSmall"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="center"
+                        android:text="@string/get_verify_code"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_countdownView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="invisible">
+
+                        <cn.iwgang.countdownview.CountdownView
+                            android:id="@+id/countdownView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:isShowHour="false"
+                            app:isShowMinute="false"
+                            app:isShowSecond="true"
+                            app:suffixGravity="center"
+                            app:timeTextColor="@color/gray_common"
+                            app:timeTextSize="@dimen/font_small" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/resend_load" />
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="84dp"
+                    android:text="@string/pwd_login" />
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/str_enter_login_pass"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:text="@={phoneViewModel.pwd}"
+                    android:textSize="@dimen/font_normal" />
+
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <TextView
+                style="@style/textBlackNormal"
+                onClickCommand="@{phoneViewModel.ensureClickCommand}"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/ensure"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/base_dark"
+                app:bl_unpressed_color="@color/base" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

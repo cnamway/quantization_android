@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/textBlackNormal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:text="@string/about_fee"
+        app:bl_corners_topLeftRadius="4dp"
+        app:bl_corners_topRightRadius="4dp"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix"/>
+
+    <TextView
+        style="@style/textBlackSmall"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:paddingLeft="12dp"
+        android:text="@string/about_fee_tips"/>
+
+    <TextView
+        android:id="@+id/extract_notice_tv"
+        style="@style/textBlackSmall"
+        android:layout_width="match_parent"
+        android:paddingBottom="12dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp"
+        app:bl_corners_bottomLeftRadius="4dp"
+        app:bl_corners_bottomRightRadius="4dp"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix"/>
+</LinearLayout>

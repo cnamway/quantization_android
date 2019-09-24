@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="commissionDetailsViewModel"
+            type="com.spark.qtz.app.trade.currency.openorders.details.CommissionDetailsViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/commission_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/fake_status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+            <!--title-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/title_left"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:src="@drawable/svg_back_white"
+                    app:bl_ripple_color="@color/kline_bg_light"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/commission_bg"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_lager"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+                android:id="@+id/root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/transaction_details"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_30"
+                    android:textStyle="bold"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical"
+                    app:bl_corners_radius="4dp"
+                    app:bl_solid_color="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="88dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:text="@string/total_turnover"/>
+
+                            <TextView
+                                style="@style/textBlackLarge"
+                                android:layout_marginTop="8dp"
+                                android:text="@{commissionDetailsViewModel.dealAllAccount}"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/img_status"
+                            android:layout_width="88dp"
+                            android:layout_height="72dp"
+                            android:src="@mipmap/icon_completed"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="12dp"
+                            app:bl_corners_bottomRightRadius="6dp"
+                            app:bl_corners_topRightRadius="6dp"
+                            app:bl_solid_color="@color/commission_bg"/>
+
+                        <View
+                            style="@style/line_ccc"
+                            android:layout_weight="1"/>
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="12dp"
+                            app:bl_corners_bottomLeftRadius="6dp"
+                            app:bl_corners_topLeftRadius="6dp"
+                            app:bl_solid_color="@color/commission_bg"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:layout_weight="1"
+                                android:text="@string/direction"/>
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:text="@{commissionDetailsViewModel.dealType}"
+                                android:textColor="@{commissionDetailsViewModel.isBuyType ? @color/green : @color/orange}"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:layout_weight="1"
+                                android:text="@string/average_transaction_price"/>
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:text="@{commissionDetailsViewModel.dealEvaluationPrice}"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/ll_item_48">
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:layout_weight="1"
+                                android:text="@string/transaction_volume"/>
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:text="@{commissionDetailsViewModel.dealNum}"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_open_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:bl_corners_radius="4dp"
+                    app:bl_solid_color="@color/white"></android.support.v7.widget.RecyclerView>
+            </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

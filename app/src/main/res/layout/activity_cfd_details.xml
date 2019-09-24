@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="cfdDetailsViewModel"
+            type="com.spark.qtz.app.trade.contract.details.CfdDetailsViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/cfd_details_title"
+            layout="@layout/view_title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textBlackNormal"
+                android:layout_marginTop="16dp"
+                android:text="@{cfdDetailsViewModel.profitLoss}"
+                android:textSize="@dimen/sp_30"
+                android:textStyle="bold"/>
+
+            <TextView
+                style="@style/textGrayCommonNormal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/trade_profitloss"/>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        style="@style/ll_item_42">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@{cfdDetailsViewModel.side}"
+                            android:textColor="@{cfdDetailsViewModel.isSideUp ? @color/green : @color/orange}"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:text="@{cfdDetailsViewModel.symbol}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_42">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/contract_number"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.orderId}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.GONE : View.VISIBLE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/hanging_unit_price"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.pendingPrice}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.GONE : View.VISIBLE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_height="wrap_content"
+                            android:text="@string/open_price"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.openPrice}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/close_price"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.closePrice}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/positions"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.position}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/margin"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.marginPrice}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/stop_profit_price"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.profitPrice}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/stop_loss_price"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.lossPrice}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/position_fee"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.holdPrice}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/open_fee"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.openFee}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/open_type"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.openType}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/open_time"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.openTime}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/close_fee"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.closeFee}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/close_type"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.closeType}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/close_time"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.closeTime}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.VISIBLE : View.GONE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.GONE : View.VISIBLE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/pending_order_time"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.pendingTime}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.GONE : View.VISIBLE}"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_42"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.GONE : View.VISIBLE}">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/pending_withdraw_time"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginLeft="16dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{cfdDetailsViewModel.withdrawalTime}"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:visibility="@{cfdDetailsViewModel.isPosition ? View.GONE : View.VISIBLE}"/>
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

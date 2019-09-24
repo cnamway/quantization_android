@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //65535混淆
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    productFlavors {
+    }
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '28.0.0'
+                }
+            }
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':MvvmArms')
+    implementation project(':WsClient')
+    implementation project(':CasClient')
+    implementation project(':moduleUC')
+    implementation project(':KlineLib')
+    implementation project(':moduleAC')
+    implementation project(':moduleOTC')
+    implementation project(':moduleSPOT')
+    implementation project(':moduleCFD')
+    implementation project(':moduleQUANTIZATION')
+    implementation(name: 'geetest_testbutton_android_v3.5.3', ext: 'aar')
+    implementation 'com.android.support:multidex:1.0.1'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+    api rootProject.ext.support["constraint-layout"]
+    //leakcanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    // or 1.4-beta1
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    // or 1.4-beta1
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    // or 1.4-beta1
+    //ARouter
+    api(rootProject.ext.dependencies["arouter-api"]) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    //banner
+    api(rootProject.ext.dependencies["banner"]) {
+        exclude group: 'com.android.support'
+    }
+}

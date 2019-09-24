@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="coinAddressAddViewModel"
+            type="com.spark.qtz.app.me.setting.coinaddress.add.CoinAddressAddViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/coin_address_add_title"
+            layout="@layout/view_title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textBlackSmall"
+                android:layout_marginLeft="16dp"
+                android:text="@string/add_coin_address"
+                android:textSize="@dimen/sp_30"
+                android:textStyle="bold"/>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginTop="16dp"/>
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="84dp"
+                    android:text="@string/coin_type"/>
+
+                <EditText
+                    style="@style/trade_input"
+                    android:enabled="false"
+                    android:hint="@string/coin_type_hint"
+                    android:text="@={coinAddressAddViewModel.mSelectCoinName}"
+                    android:textSize="@dimen/font_normal"/>
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:padding="6dp"
+                    android:src="@drawable/svg_pull_down"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white"
+                    binding:onClickCommand="@{coinAddressAddViewModel.coinAddressCommand}"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginLeft="16dp"/>
+
+            <LinearLayout
+                style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="84dp"
+                    android:text="@string/address"/>
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/address_hint"
+                    android:maxLines="1"
+                    android:text="@={coinAddressAddViewModel.mCoinAddress}"
+                    android:textSize="@dimen/font_normal"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginLeft="16dp"/>
+
+            <LinearLayout
+                style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="84dp"
+                    android:text="@string/remark"/>
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/remark_hint"
+                    android:maxLines="1"
+                    android:text="@={coinAddressAddViewModel.mCoinRemark}"
+                    android:textSize="@dimen/font_normal"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <TextView
+                style="@style/textBlackNormal"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/add"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/base_dark"
+                app:bl_unpressed_color="@color/base"
+                binding:onClickCommand="@{coinAddressAddViewModel.coinAddressSubmitCommand}"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

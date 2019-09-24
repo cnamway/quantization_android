@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              app:bl_corners_topLeftRadius="14dp"
+              app:bl_corners_topRightRadius="14dp"
+              app:bl_solid_color="@color/gray_456">
+
+    <TextView
+        android:id="@+id/tv_popup_title"
+        style="@style/textGrayCommonNormal"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/gray_common"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        style="@style/ll_item_52"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:text="@string/type"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_popup_type"
+            style="@style/textGrayCommonSmall"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <View style="@style/line_ccc"/>
+
+    <LinearLayout
+        style="@style/ll_item_52"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:text="@string/price"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_popup_price"
+            style="@style/textGrayCommonSmall"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+
+    <View style="@style/line_ccc"/>
+
+    <LinearLayout
+        style="@style/ll_item_52"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:text="@string/number"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_popup_num"
+            style="@style/textGrayCommonSmall"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+
+    <View style="@style/line_ccc"/>
+
+    <LinearLayout
+        style="@style/ll_item_52"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_height="wrap_content"
+            android:text="@string/turnover"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_popup_amount"
+            style="@style/textGrayCommonSmall"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+
+    <View style="@style/line_ccc"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            style="@style/textBlackNormal"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/buy_ensure"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:bl_corners_radius="4dp"
+            app:bl_pressed_color="@color/green_dark"
+            app:bl_unpressed_color="@color/green"
+            tools:ignore="MissingPrefix"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        style="@style/textGrayCommonNormal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/cancel"
+        app:bl_ripple_color="@color/gray_456"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix"/>
+</LinearLayout>

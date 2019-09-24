@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="adUploadViewModel"
+            type="com.spark.qtz.app.trade.legal_currency.adcreate.upload.AdUploadViewModel"/>
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <!--选择币种-->
+            <LinearLayout
+                style="@style/ll_item_56"
+                onClickCommand="@{adUploadViewModel.chooseCoinCommand}"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/choose_coin"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_width="92dp"
+                    android:layout_weight="1"
+                    android:text="@{adUploadViewModel.coinName}"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/svg_pull_down"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--所在地-->
+            <LinearLayout
+                style="@style/ll_item_56"
+                onClickCommand="@{adUploadViewModel.chooseCoinAddressCommand}">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_country"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_width="92dp"
+                    android:layout_weight="1"
+                    android:text="@{adUploadViewModel.coinAddress}"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/svg_pull_down"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--货币类型-->
+            <LinearLayout
+                style="@style/ll_item_56"
+                onClickCommand="@{adUploadViewModel.chooseCoinTypeCommand}">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_coin_type"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_width="92dp"
+                    android:layout_weight="1"
+                    android:text="@{adUploadViewModel.coinType}"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/svg_pull_down"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--固定价格-->
+            <LinearLayout
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_fixed_price"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"/>
+
+                <com.sevenheaven.iosswitch.ShSwitchView
+                    android:id="@+id/isFixedPriceSwitch"
+                    android:layout_width="54dp"
+                    android:layout_height="38dp"
+                    app:shadowSpace="7dp"
+                    app:tintColor="@color/base"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--溢价-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{adUploadViewModel.isFixedPrice ? View.GONE : View.VISIBLE}">
+
+                <LinearLayout
+                    style="@style/ll_item_56">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="92dp"
+                        android:text="@string/str_float_rate"/>
+
+                    <EditText
+                        android:id="@+id/ad_premium_price"
+                        style="@style/trade_input"
+                        android:hint="@string/str_set_float_rate"
+                        android:inputType="numberDecimal"
+                        android:text="@={adUploadViewModel.premiumPrice}"
+                        android:textSize="@dimen/font_normal"/>
+
+                    <TextView
+                        style="@style/textGrayCommonNormal"
+                        android:text="%"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{adUploadViewModel.fixedPriceTips}"
+                    android:textSize="@dimen/font_mini"/>
+            </LinearLayout>
+
+            <!--固定价格-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{adUploadViewModel.isFixedPrice ? View.VISIBLE : View.GONE}">
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{adUploadViewModel.premiumPriceTips}"
+                    android:textSize="@dimen/font_mini"/>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <LinearLayout
+                    style="@style/ll_item_56">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="92dp"
+                        android:text="@string/str_fixed_price"/>
+
+                    <EditText
+                        android:id="@+id/ad_fix_price"
+                        style="@style/trade_input"
+                        android:hint="@string/str_set_fixed_price"
+                        android:inputType="numberDecimal"
+                        android:text="@={adUploadViewModel.fixedPrice}"
+                        android:textSize="@dimen/font_normal"/>
+
+                    <TextView
+                        style="@style/textGrayCommonNormal"
+                        android:text="CNY"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_trade_price"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_width="92dp"
+                    android:layout_weight="1"
+                    android:text="@{adUploadViewModel.tradePrice}"/>
+
+                <TextView
+                    style="@style/textGrayCommonNormal"
+                    android:text="CNY"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@{adUploadViewModel.adTypeTag}"/>
+
+                <EditText
+                    android:id="@+id/ad_trade_number"
+                    style="@style/trade_input"
+                    android:hint="@{adUploadViewModel.tradeNumberHint}"
+                    android:inputType="numberDecimal"
+                    android:text="@={adUploadViewModel.tradeNumber}"
+                    android:textSize="@dimen/font_normal"/>
+
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--收款方式-->
+            <LinearLayout
+                android:id="@+id/ad_pay_mode"
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_payway"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"
+                    android:text="@{adUploadViewModel.payMode}"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/svg_pull_down"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--付款期限-->
+            <LinearLayout
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_limit"/>
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/str_set_limit"
+                    android:inputType="number"
+                    android:text="@={adUploadViewModel.tradeDeadline}"
+                    android:textSize="@dimen/font_normal"/>
+
+                <TextView
+                    style="@style/textGrayCommonNormal"
+                    android:text="@string/text_minute"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--最小交易额-->
+            <LinearLayout
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_min"/>
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/str_set_min"
+                    android:inputType="numberDecimal"
+                    android:text="@={adUploadViewModel.minAmount}"
+                    android:textSize="@dimen/font_normal"/>
+
+                <TextView
+                    style="@style/textGrayCommonNormal"
+                    android:text="CNY"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--付款期限-->
+            <LinearLayout
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_max"/>
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/str_set_max"
+                    android:inputType="numberDecimal"
+                    android:text="@={adUploadViewModel.maxAmount}"
+                    android:textSize="@dimen/font_normal"/>
+
+                <TextView
+                    style="@style/textGrayCommonNormal"
+                    android:text="CNY"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--备注信息-->
+            <EditText
+                style="@style/trade_input"
+                android:layout_height="92dp"
+                android:gravity="top"
+                android:hint="@string/str_enter_reamrk"
+                android:padding="16dp"
+                android:text="@={adUploadViewModel.remarks}"/>
+
+            <!--自动回复-->
+            <LinearLayout
+                style="@style/ll_item_56">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="92dp"
+                    android:text="@string/str_auto_reply"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"/>
+
+                <com.sevenheaven.iosswitch.ShSwitchView
+                    android:id="@+id/isAutoResponseSwitch"
+                    android:layout_width="54dp"
+                    android:layout_height="38dp"
+                    app:shadowSpace="7dp"
+                    app:tintColor="@color/base"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <!--回复内容-->
+            <EditText
+                style="@style/trade_input"
+                android:layout_height="92dp"
+                android:gravity="top"
+                android:hint="@string/str_enter_reply"
+                android:padding="16dp"
+                android:text="@={adUploadViewModel.autoResponse}"
+                android:visibility="@{adUploadViewModel.isAutoResponse ? View.VISIBLE : View.GONE}"/>
+
+            <TextView
+                style="@style/textBlackNormal"
+                onClickCommand="@{adUploadViewModel.submitCommand}"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@{adUploadViewModel.submitBtn}"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/base_dark"
+                app:bl_unpressed_color="@color/base"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

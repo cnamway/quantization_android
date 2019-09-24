@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              app:bl_corners_topLeftRadius="14dp"
+              app:bl_corners_topRightRadius="14dp"
+              app:bl_solid_color="@color/gray_456">
+
+    <TextView
+        style="@style/textGrayCommonNormal"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/set_profit_loss"
+        android:textColor="@color/gray_common"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            style="@style/textGrayCommonFont13"
+            android:text="@string/stop_profit_price"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:id="@+id/llPrice"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:bl_corners_radius="4dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/gray_ccc"
+            app:bl_stroke_width="1px"
+            tools:ignore="MissingPrefix">
+
+            <ImageView
+                android:id="@+id/profitSubtract"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="6dp"
+                android:src="@drawable/svg_decrease"/>
+
+            <View style="@style/line_ccc_vertical"/>
+
+            <EditText
+                android:id="@+id/profit"
+                style="@style/trade_input"
+                android:hint="@string/stop_loss_price_hint"
+                android:inputType="numberDecimal"
+                android:padding="4dp"/>
+
+            <View style="@style/line_ccc_vertical"/>
+
+            <ImageView
+                android:id="@+id/profitAdd"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="6dp"
+                android:src="@drawable/svg_crease"/>
+        </LinearLayout>
+
+
+        <TextView
+            style="@style/textGrayCommonFont13"
+            android:layout_marginTop="16dp"
+            android:text="@string/stop_loss_price"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:bl_corners_radius="4dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/gray_ccc"
+            app:bl_stroke_width="1px"
+            tools:ignore="MissingPrefix">
+
+            <ImageView
+                android:id="@+id/lossSubtract"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="6dp"
+                android:src="@drawable/svg_decrease"/>
+
+            <View style="@style/line_ccc_vertical"/>
+
+            <EditText
+                android:id="@+id/loss"
+                style="@style/trade_input"
+                android:hint="@string/stop_loss_price_hint"
+                android:inputType="numberDecimal"
+                android:padding="4dp"/>
+
+            <View style="@style/line_ccc_vertical"/>
+
+            <ImageView
+                android:id="@+id/lossAdd"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="6dp"
+                android:src="@drawable/svg_crease"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/content"
+            style="@style/textGrayCommonFont13"
+            android:textColor="@color/red"
+            android:textSize="@dimen/font_mini"/>
+    </LinearLayout>
+
+    <View style="@style/line_ccc"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/confirm"
+            style="@style/textBlackNormal"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/ensure"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:bl_corners_radius="4dp"
+            app:bl_pressed_color="@color/blue_dark"
+            app:bl_unpressed_color="@color/blue"
+            tools:ignore="MissingPrefix"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/cancel"
+        style="@style/textGrayCommonNormal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/cancel"
+        app:bl_ripple_color="@color/gray_456"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix"/>
+</LinearLayout>

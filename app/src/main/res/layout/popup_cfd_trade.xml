@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              app:bl_corners_topLeftRadius="14dp"
+              app:bl_corners_topRightRadius="14dp"
+              app:bl_solid_color="@color/gray_456">
+
+    <TextView
+        android:id="@+id/tv_popup_title"
+        style="@style/textGrayCommonNormal"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/gray_common"
+        android:textStyle="bold"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/type"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/buy_type"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/hand_size"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/number"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/contract_multiplier"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/multiplier"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/price"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/price"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/commission_value"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/priceTrans"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/leverage_multiple"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/marginLever"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/commission_margin2"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/commissionAccount"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/open_fee"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/openFee"
+                    style="@style/textGrayCommonSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/stop_profit_price"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/stopProfitPrice"
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="@string/stop_profit_price_hint"
+                    android:inputType="numberDecimal"/>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_marginLeft="16dp"
+                    android:text="USDT"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_42"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:text="@string/stop_loss_price"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/stopLossPrice"
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="@string/stop_loss_price_hint"
+                    android:inputType="numberDecimal"/>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_marginLeft="16dp"
+                    android:text="USDT"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_confirm"
+                    style="@style/textBlackNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="@string/ensure"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:bl_corners_radius="4dp"
+                    app:bl_pressed_color="@color/green_dark"
+                    app:bl_unpressed_color="@color/green"
+                    tools:ignore="MissingPrefix"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/textGrayCommonNormal"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/cancel"
+                app:bl_ripple_color="@color/gray_456"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white"
+                tools:ignore="MissingPrefix"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="aboutViewModel"
+            type="com.spark.qtz.app.me.system.about.AboutViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/about_title"
+            layout="@layout/view_title"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="124dp"
+                    android:layout_height="124dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/bitrade"/>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:text="@{aboutViewModel.versionName}"
+                    android:textStyle="bold"/>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginTop="32dp"/>
+
+                <!--关于EMEX-->
+                <LinearLayout
+                    style="@style/ll_item_52"
+                    onClickCommand="@{aboutViewModel.aboutAppClickCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_weight="1"
+                        android:text="@string/app_about"/>
+
+                    <ImageView
+                        style="@style/imgEnter"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginLeft="16dp"/>
+
+                <!--隐私政策-->
+                <LinearLayout
+                    style="@style/ll_item_52"
+                    onClickCommand="@{aboutViewModel.rivacyClickCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_weight="1"
+                        android:text="@string/register_rivacy"/>
+
+                    <ImageView
+                        style="@style/imgEnter"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginLeft="16dp"/>
+
+                <!--用户协议-->
+                <LinearLayout
+                    style="@style/ll_item_52"
+                    onClickCommand="@{aboutViewModel.clauseClickCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_weight="1"
+                        android:text="@string/register_clause"/>
+
+                    <ImageView
+                        style="@style/imgEnter"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginLeft="16dp"/>
+
+                <!--官方网站-->
+                <LinearLayout
+                    style="@style/ll_item_52"
+                    onClickCommand="@{aboutViewModel.officeWebSiteClickCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:text="@string/official_website"/>
+
+                    <TextView
+                        style="@style/textGrayCommonNormal"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@{aboutViewModel.officeWebSite}"/>
+
+                    <ImageView
+                        style="@style/imgEnter"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginLeft="16dp"/>
+
+                <!--联系客服-->
+                <LinearLayout
+                    style="@style/ll_item_52"
+                    onClickCommand="@{aboutViewModel.contactCustomerClickCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_weight="1"
+                        android:text="@string/contact_customer_service"/>
+
+                    <ImageView
+                        style="@style/imgEnter"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+                <!--联系客服-->
+                <LinearLayout
+                    style="@style/ll_item_52"
+                    onClickCommand="@{aboutViewModel.helpCenterClickCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_weight="1"
+                        android:text="@string/help_center"/>
+
+                    <ImageView
+                        style="@style/imgEnter"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+                <!--版本更新-->
+                <LinearLayout
+                    style="@style/ll_item_52"
+                    onClickCommand="@{aboutViewModel.versionUpdateClickCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:text="@string/version_update"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/isHasNew"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/svg_new_version"
+                            android:visibility="gone"/>
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginLeft="4dp"
+                            android:text="@{aboutViewModel.updateVersion}"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        style="@style/imgEnter"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

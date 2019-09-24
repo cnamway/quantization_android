@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="coinSupportDataBean"
+            type="com.spark.acclient.pojo.CoinSupportBean.DataBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_456"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:text="@{coinSupportDataBean.coinName}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_normal"/>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

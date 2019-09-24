@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pwdForgetViewModel"
+            type="com.spark.qtz.app.me.user.pwdforget.PwdForgetViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/login_title"
+            layout="@layout/view_title"/>
+
+        <TextView
+            style="@style/textBlackLarge"
+            android:layout_margin="30dp"
+            android:text="@string/pwd_reset"
+            android:textSize="@dimen/sp_30"/>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_width="78dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/user_count"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:layout_marginLeft="6dp"
+                        android:hint="@string/user_count_hint"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:text="@={pwdForgetViewModel.phoneNum}"
+                        android:textSize="@dimen/font_normal"/>
+
+                </LinearLayout>
+
+                <View style="@style/line_ccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    binding:onClickCommand="@{pwdForgetViewModel.chooseCountryOnClickCommand}">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/country"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/register_country_code"
+                        style="@style/textBlackNormal"
+                        android:layout_marginLeft="16dp"
+                        android:layout_weight="1"
+                        android:paddingLeft="32dp"
+                        android:text="@{pwdForgetViewModel.countryCode}"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/register_country_name"
+                        style="@style/textGrayCommonSmall"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:drawableRight="@drawable/svg_pull_down"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:text="@{pwdForgetViewModel.countryName}"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_width="78dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/verify_code"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/user_password"
+                        style="@style/trade_input"
+                        android:layout_marginLeft="6dp"
+                        android:hint="@string/verify_code_hint"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:text="@={pwdForgetViewModel.verifyCode}"
+                        android:textSize="@dimen/font_normal"/>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="12dp">
+
+                        <TextView
+                            android:id="@+id/get_sms_code"
+                            style="@style/textGrayCommonSmall"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right"
+                            android:gravity="center"
+                            android:text="@string/get_verify_code"
+                            android:visibility="visible"/>
+
+                        <LinearLayout
+                            android:id="@+id/ll_countdownView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <cn.iwgang.countdownview.CountdownView
+                                android:id="@+id/countdownView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:isShowHour="false"
+                                app:isShowMinute="false"
+                                app:isShowSecond="true"
+                                app:suffixGravity="center"
+                                app:timeTextColor="@color/gray_common"
+                                app:timeTextSize="@dimen/font_small"/>
+
+                            <TextView
+                                style="@style/textGrayCommonSmall"
+                                android:text="@string/resend_load"/>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_width="78dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/new_pwd"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:layout_marginLeft="6dp"
+                        android:hint="@string/new_pwd_hint"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:text="@={pwdForgetViewModel.newPwd}"
+                        android:textSize="@dimen/font_normal"/>
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_width="78dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/pwd_ensure"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:layout_marginLeft="6dp"
+                        android:hint="@string/new_pwd_ensure_hint"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:text="@={pwdForgetViewModel.newPwdAgain}"
+                        android:textSize="@dimen/font_normal"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            style="@style/textBlackNormal"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/reset"
+            android:textStyle="bold"
+            app:bl_corners_radius="4dp"
+            app:bl_pressed_color="@color/base_dark"
+            app:bl_unpressed_color="@color/base"
+            binding:onClickCommand="@{pwdForgetViewModel.pwdResetOnClickCommand}"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="indexTacticsResult"
+            type="com.spark.otcclient.pojo.FindPageResult.DataBean.RecordsBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:bl_corners_radius="4dp"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/main_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_10"
+                app:bl_corners_topLeftRadius="4dp"
+                app:bl_corners_topRightRadius="4dp"
+                app:bl_solid_color="#083F86">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="循环策略"
+                    android:layout_height="32dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/main_color"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp_10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="方向"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="当前持仓(张)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="开仓价格(USDT)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_light_blue2"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp_10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="平仓价格(USDT)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="仓位(张)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="循环次数(次)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/main_color"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp_10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="止损价格(USDT)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="突破价格(USDT)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="平移点数"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_light_blue2"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp_10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="辅助策略"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="创建时间"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="运行时间"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/main_color"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp_10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="状态"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

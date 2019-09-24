@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="contractAccountViewModel"
+            type="com.spark.qtz.app.me.finance.property.contract.ContractAccountViewModel"/>
+    </data>
+
+    <com.spark.qtz.ui.popup.VpSwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="12dp"
+                android:paddingRight="12dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:bl_corners_topLeftRadius="6dp"
+                    app:bl_corners_topRightRadius="6dp"
+                    app:bl_solid_color="@color/blue_light"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    app:bl_corners_topLeftRadius="6dp"
+                    app:bl_corners_topRightRadius="6dp"
+                    app:bl_gradient_angle="0"
+                    app:bl_gradient_endColor="#81A9EC"
+                    app:bl_gradient_startColor="@color/blue">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imgIsHideAccount"
+                            onClickCommand="@{contractAccountViewModel.hideAccountOnClickCommand}"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            android:src="@drawable/svg_show"/>
+
+                        <ImageView
+                            onClickCommand="@{contractAccountViewModel.coinTransCommand}"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            android:src="@drawable/svg_trans_black"/>
+                    </LinearLayout>
+
+
+                    <TextView
+                        style="@style/textBlackLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:text="@{contractAccountViewModel.cfdWalletTotalChar}"
+                        android:textSize="@dimen/font_xlager"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@{contractAccountViewModel.cfdWalletTransChar}"
+                        android:textColor="@color/black21"/>
+
+                    <TextView
+                        style="@style/textBlackFont13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@{contractAccountViewModel.cfdWalletAvailable}"
+                        android:textColor="@color/black21"/>
+
+                    <TextView
+                        style="@style/textBlackFont13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@{contractAccountViewModel.cfdWalletFreeze}"
+                        android:textColor="@color/black21"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <com.spark.qtz.ui.tablayout.SlidingTabLayout
+                android:id="@+id/contract_account_tab"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                app:tl_indicator_color="#000000"
+                app:tl_indicator_height="2dp"
+                app:tl_indicator_width_equal_title="true"
+                app:tl_tab_padding="6dp"
+                app:tl_tab_space_equal="true"
+                app:tl_textSelectColor="#000000"
+                app:tl_textUnselectColor="#94374155"
+                app:tl_textsize="@dimen/font_normal"/>
+
+            <View style="@style/line_ccc"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/contract_account_vp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+    </com.spark.qtz.ui.popup.VpSwipeRefreshLayout>
+</layout>

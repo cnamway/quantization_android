@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="inviteFriendVM"
+            type="com.spark.ucclient.pojo.RecordPageResult.DataBean.RecordsBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingTop="12dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:text="@string/register_time"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginTop="8dp"
+                    android:text="@{inviteFriendVM.formatTime()}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:layout_weight="0.8"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:text="@string/user_name"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginTop="8dp"
+                    android:text="@{inviteFriendVM.username}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:text="@string/statue"/>
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_marginTop="8dp"
+                    android:text="@{inviteFriendVM.formatStatue()}"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

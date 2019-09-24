@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="coinWithdrawAddress"
+            type="com.spark.acclient.pojo.CoinWithdrawAddressResult.DataBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_456"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:text="@{coinWithdrawAddress.address}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_normal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:text="@{coinWithdrawAddress.remark}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_small"/>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

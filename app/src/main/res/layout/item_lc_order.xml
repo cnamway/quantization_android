@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="lcOrderViewModel"
+            type="com.spark.otcclient.pojo.LcOrderResult.DataBean.RecordsBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="@{lcOrderViewModel.initType()}"
+                    android:textColor="@{lcOrderViewModel.initTypeColor() ? @color/green : @color/orange}"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="6dp"
+                    android:text="@{lcOrderViewModel.coinName}"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@{lcOrderViewModel.initStatueType()}"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_width="78dp"
+                    android:text="@{lcOrderViewModel.initNumber()}"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginLeft="48dp"
+                    android:text="@string/str_money_all"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/time"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="78dp"
+                    android:text="@{lcOrderViewModel.initNumberText()}"/>
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_marginLeft="48dp"
+                    android:maxLines="1"
+                    android:text="@{lcOrderViewModel.initMoneyText()}"/>
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@{lcOrderViewModel.formatDate()}"/>
+            </LinearLayout>
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:layout_marginTop="8dp"
+                android:text="@{lcOrderViewModel.initTradeToUsername()}"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

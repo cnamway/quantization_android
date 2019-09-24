@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="marketSellViewModel"
+            type="com.spark.modulespot.pojo.MarketSymbolResult.DataBean.AskBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:maxLines="1"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="@{marketSellViewModel.forMatPrice()}"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/font_mini"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:maxLines="1"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="@{marketSellViewModel.forMatAmount()}"
+            android:textColor="@color/gray_common_8c"
+            android:textSize="@dimen/font_mini"/>
+    </LinearLayout>
+</layout>

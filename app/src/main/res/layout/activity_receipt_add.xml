@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="receiptAddViewModel"
+            type="com.spark.qtz.app.me.setting.receipt.add.ReceiptAddViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/receipt_title"
+            layout="@layout/view_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                onClickCommand="@{receiptAddViewModel.aliPayOnClickCommand}"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:text="@string/str_alipay" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                onClickCommand="@{receiptAddViewModel.wechatPayOnClickCommand}"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:text="@string/str_wechat" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                onClickCommand="@{receiptAddViewModel.bankPayOnClickCommand}"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:text="@string/str_bank" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                onClickCommand="@{receiptAddViewModel.paypalPayOnClickCommand}"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:text="@string/str_paypal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                onClickCommand="@{receiptAddViewModel.otherPayOnClickCommand}"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:text="@string/str_other" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

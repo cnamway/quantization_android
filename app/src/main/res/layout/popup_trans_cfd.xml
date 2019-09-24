@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:bl_corners_topLeftRadius="14dp"
+    app:bl_corners_topRightRadius="14dp"
+    app:bl_solid_color="@color/gray_456">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/textGrayCommonNormal"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@string/coin_trans"
+            android:textColor="@color/gray_common"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/trans_order"
+            style="@style/textGrayCommonSmall"
+            android:layout_gravity="center_vertical|right"
+            android:drawableLeft="@drawable/svg_order_gray"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="@string/record"
+            android:textColor="@color/gray_common"/>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_centerInParent="true"
+                android:layout_margin="16dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            app:bl_corners_radius="4dp"
+                            app:bl_solid_color="@color/green"
+                            tools:ignore="MissingPrefix"/>
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="12dp"
+                            app:bl_corners_radius="2dp"
+                            app:bl_solid_color="@color/gray_ccc"
+                            tools:ignore="MissingPrefix"/>
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="8dp"
+                            app:bl_corners_radius="2dp"
+                            app:bl_solid_color="@color/gray_ccc"
+                            tools:ignore="MissingPrefix"/>
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            app:bl_corners_radius="2dp"
+                            app:bl_solid_color="@color/gray_ccc"
+                            tools:ignore="MissingPrefix"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            app:bl_corners_radius="4dp"
+                            app:bl_solid_color="@color/orange"
+                            tools:ignore="MissingPrefix"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:layout_width="48dp"
+                                android:text="@string/from"/>
+
+                            <TextView
+                                android:id="@+id/trans_from_tv"
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="32dp"
+                                android:text="@string/cfd_account"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:layout_width="48dp"
+                                android:text="@string/to"/>
+
+                            <TextView
+                                android:id="@+id/trans_from_to"
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="32dp"
+                                android:text="@string/b2b_account"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/trans_reverse"
+                        android:layout_width="72dp"
+                        android:layout_height="match_parent"
+                        android:background="#fafafc"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:padding="6dp"
+                            android:src="@drawable/svg_trans_white"
+                            app:bl_corners_radius="16dp"
+                            app:bl_solid_color="@color/gray_common"
+                            tools:ignore="MissingPrefix"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <LinearLayout
+                style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"
+                    android:text="@string/coin_type"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:drawablePadding="4dp"
+                    android:text="USDT"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginLeft="16dp"/>
+
+            <TextView
+                style="@style/textGrayCommonFont13"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/number"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                style="@style/ll_item_52">
+
+                <EditText
+                    android:id="@+id/trans_num"
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/trans_number_hint"
+                    android:inputType="numberDecimal"/>
+
+                <TextView
+                    android:id="@+id/trans_all"
+                    style="@style/textGrayCommonFont13"
+                    android:text="@string/extract_all"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginLeft="16dp"/>
+
+            <TextView
+                android:id="@+id/trans_num_available"
+                style="@style/textGrayCommonFont13"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/btn_trans"
+                style="@style/textBlackNormal"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/coin_trans"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/base_dark"
+                app:bl_unpressed_color="@color/base"
+                tools:ignore="MissingPrefix"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        style="@style/textGrayCommonNormal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/cancel"
+        app:bl_ripple_color="@color/gray_456"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix"/>
+</LinearLayout>

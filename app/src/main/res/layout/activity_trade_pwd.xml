@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="tradePwdViewModel"
+            type="com.spark.qtz.app.me.safe.safecentre.tradepwd.TradePwdViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/phone_title"
+            layout="@layout/view_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textBlackSmall"
+                android:layout_marginLeft="16dp"
+                android:text="@{tradePwdViewModel.titleText}"
+                android:textSize="@dimen/sp_30"
+                android:textStyle="bold" />
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginTop="16dp" />
+
+            <LinearLayout
+                style="@style/ll_item_52"
+                android:layout_marginTop="16dp"
+                android:visibility="@{tradePwdViewModel.oldPwdVisiable ? View.GONE : View.VISIBLE}">
+
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="82dp"
+                    android:text="@string/old_pwd" />
+
+                <EditText
+                    android:id="@+id/oldPwd"
+                    style="@style/trade_input"
+                    android:hint="@string/old_pwd_hint"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:text="@={tradePwdViewModel.oldPwd}"
+                    android:textSize="@dimen/font_normal" />
+
+                <ImageView
+                    android:id="@+id/oldPwdSwitch"
+                    onClickCommand="@{tradePwdViewModel.oldPwdSwitchOnClickCommand}"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:padding="16dp"
+                    android:src="@drawable/svg_show" />
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:visibility="@{tradePwdViewModel.oldPwdVisiable ? View.GONE : View.VISIBLE}" />
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="82dp"
+                    android:text="@{tradePwdViewModel.oldPwdVisiable ? @string/pwd : @string/new_pwd}" />
+
+                <EditText
+                    android:id="@+id/newPwd"
+                    style="@style/trade_input"
+                    android:hint="@{tradePwdViewModel.oldPwdVisiable ? @string/pwd_hint : @string/new_pwd_hint}"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:text="@={tradePwdViewModel.newPwd}"
+                    android:textSize="@dimen/font_normal" />
+
+                <ImageView
+                    android:id="@+id/newPwdSwitch"
+                    onClickCommand="@{tradePwdViewModel.newPwdSwitchOnClickCommand}"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:padding="16dp"
+                    android:src="@drawable/svg_show" />
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <LinearLayout style="@style/ll_item_52">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="82dp"
+                    android:text="@{tradePwdViewModel.oldPwdVisiable ? @string/pwd_ensure : @string/new_pwd_ensure}" />
+
+                <EditText
+                    android:id="@+id/newAgainPwd"
+                    style="@style/trade_input"
+                    android:hint="@{tradePwdViewModel.oldPwdVisiable ? @string/pwd_again : @string/new_pwd_ensure_hint}"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:text="@={tradePwdViewModel.newAgainPwd}"
+                    android:textSize="@dimen/font_normal" />
+
+                <ImageView
+                    android:id="@+id/newAgainPwdSwitch"
+                    onClickCommand="@{tradePwdViewModel.newAgainPwdSwitchOnClickCommand}"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:padding="16dp"
+                    android:src="@drawable/svg_show" />
+            </LinearLayout>
+
+            <View style="@style/line_ccc" />
+
+            <TextView
+                style="@style/textBlackNormal"
+                onClickCommand="@{tradePwdViewModel.pwdUpdateOnClickCommand}"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@{tradePwdViewModel.oldPwdVisiable ? @string/ensure : @string/reset}"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/base_dark"
+                app:bl_unpressed_color="@color/base" />
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="@string/pwd_forget"
+                android:textStyle="bold"
+                binding:onClickCommand="@{tradePwdViewModel.pwdForGetOnClickCommand}" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

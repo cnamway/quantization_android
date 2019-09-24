@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="curAccountViewModel"
+            type="com.spark.qtz.app.me.finance.property.currency.CurAccountViewModel"/>
+    </data>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+            android:id="@+id/cur_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="124dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="12dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:bl_corners_topLeftRadius="6dp"
+                    app:bl_corners_topRightRadius="6dp"
+                    app:bl_solid_color="#fff9ce"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    app:bl_corners_topLeftRadius="6dp"
+                    app:bl_corners_topRightRadius="6dp"
+                    app:bl_gradient_angle="0"
+                    app:bl_gradient_endColor="#FFE93A"
+                    app:bl_gradient_startColor="#FFCF1B">
+
+                    <ImageView
+                        android:id="@+id/imgIsHideAccount"
+                        onClickCommand="@{curAccountViewModel.hideAccountOnClickCommand}"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/svg_show"/>
+
+                    <TextView
+                        style="@style/textBlackLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:text="@{curAccountViewModel.spotWalletTotalChar}"
+                        android:textSize="@dimen/font_xlager"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@{curAccountViewModel.spotWalletTransChar}"
+                        android:textColor="@color/black21"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal">
+                <!--充币-->
+                <LinearLayout
+                    style="@style/ll_match_horizontal_emex"
+                    onClickCommand="@{curAccountViewModel.coinInCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/svg_recharge_grey"/>
+
+                    <TextView
+                        style="@style/textBlackFont13"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/coin_in"
+                        android:textColor="@color/gray_51"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc_vertical"/>
+
+                <!--提币-->
+                <LinearLayout
+                    style="@style/ll_match_horizontal_emex"
+                    onClickCommand="@{curAccountViewModel.coinOutCommand}"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/svg_collect_grey"/>
+
+                    <TextView
+                        style="@style/textBlackFont13"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/coin_out"
+                        android:textColor="@color/gray_51"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc_vertical"/>
+
+                <!--划转-->
+                <LinearLayout
+                    onClickCommand="@{curAccountViewModel.coinTransCommand}"
+                    style="@style/ll_match_horizontal_emex"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/svg_trans_grey"/>
+
+                    <TextView
+                        style="@style/textBlackFont13"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/coin_trans"
+                        android:textColor="@color/gray_51"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_account"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>

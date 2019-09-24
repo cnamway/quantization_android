@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:bl_corners_topLeftRadius="14dp"
+    app:bl_corners_topRightRadius="14dp"
+    app:bl_solid_color="@color/gray_456">
+
+    <TextView
+        style="@style/textBlackNormal"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/safety_verification"
+        android:textSize="@dimen/font_xlager"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/sms_code"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/verify_code_hint"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:padding="12dp"
+            app:bl_corners_radius="4dp"
+            app:bl_solid_color="@color/gray_456"
+            tools:ignore="MissingPrefix"/>
+
+        <View
+            style="@style/line_ccc_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp">
+
+            <TextView
+                android:id="@+id/get_sms_code"
+                style="@style/textGrayCommonSmall"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/get_verify_code"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/ll_countdownView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <cn.iwgang.countdownview.CountdownView
+                    android:id="@+id/countdownView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:isShowHour="false"
+                    app:isShowMinute="false"
+                    app:isShowSecond="true"
+                    app:suffixGravity="center"
+                    app:timeTextColor="@color/gray_common"
+                    app:timeTextSize="@dimen/font_small"/>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:text="@string/resend_load"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/line_ccc"/>
+
+    <TextView
+        android:id="@+id/sms_tip"
+        style="@style/textGrayCommonFont13"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:paddingLeft="16dp"
+        android:paddingTop="4dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/btn_ensure"
+            style="@style/textBlackNormal"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/ensure"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:bl_corners_radius="4dp"
+            app:bl_pressed_color="@color/base_dark"
+            app:bl_unpressed_color="@color/base"
+            tools:ignore="MissingPrefix"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        style="@style/textGrayCommonNormal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/cancel"
+        app:bl_ripple_color="@color/gray_456"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix"/>
+</LinearLayout>

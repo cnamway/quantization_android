@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="accountDataBean"
+            type="com.spark.acclient.pojo.SpotWalletResult.DataBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <LinearLayout
+            style="@style/ll_item_64">
+
+            <ImageView
+                binding:url="@{accountDataBean.initImgUrl()}"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/svg_btc_img"/>
+
+            <TextView
+                style="@style/textBlackNormal"
+                android:layout_marginLeft="12dp"
+                android:text="@{accountDataBean.coinId}"/>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="12dp"
+                    android:text="@{accountDataBean.formatBlance()}"/>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@{accountDataBean.formatBlanceTrans()}"/>
+            </LinearLayout>
+
+            <ImageView
+                style="@style/imgEnter"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

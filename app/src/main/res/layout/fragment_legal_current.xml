@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="legalCurrentViewModel"
+            type="com.spark.qtz.app.trade.legal_currency.LegalCurrencyViewModel"/>
+    </data>
+
+    <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+        android:id="@+id/legal_current_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <!--title-->
+        <LinearLayout
+            android:id="@+id/leak_canary_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/legal_current_type"
+                style="@style/textBlackNormal"
+                android:layout_marginLeft="16dp"
+                android:drawableRight="@drawable/svg_pull_down"
+                android:drawablePadding="4dp"
+                android:text="@string/str_buy"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/legal_current_filter"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="16dp"
+                android:src="@drawable/svg_filter"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white"/>
+
+            <ImageView
+                android:id="@+id/legal_current_menu"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="16dp"
+                android:src="@drawable/svg_more"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/white"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+
+        <com.spark.qtz.ui.tab.XTabLayout
+            android:id="@+id/legal_current_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@color/white"
+            app:x_tabIndicatorAnimation="true"
+            app:x_tabIndicatorColor="@color/black"
+            app:x_tabIndicatorRoundRect="true"
+            app:x_tabMaxWidth="96dp"
+            app:x_tabMinWidth="20dp"
+            app:x_tabMode="scrollable"
+            app:x_tabPaddingEnd="4dp"
+            app:x_tabPaddingStart="4dp"
+            app:x_tabSelectedTextColor="@color/black"/>
+
+
+        <View
+            style="@style/line_ccc"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/legal_current_vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+</layout>

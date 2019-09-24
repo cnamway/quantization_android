@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View style="@style/line_ccc" />
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:layout_margin="16dp"
+                android:text="@string/str_trade_type" />
+
+            <com.spark.qtz.ui.flowlayout.TagFlowLayout
+                android:id="@+id/fl_ad_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:max_select="1" />
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:layout_margin="16dp"
+                android:text="@string/str_asset_sub_type" />
+
+            <com.spark.qtz.ui.flowlayout.TagFlowLayout
+                android:id="@+id/fl_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:max_select="1" />
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:layout_margin="16dp"
+                android:text="@string/str_trade_money" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:bl_corners_radius="4dp"
+                    app:bl_solid_color="@color/white"
+                    app:bl_stroke_color="@color/gray_ccc"
+                    app:bl_stroke_width="1px"
+                    tools:ignore="MissingPrefix">
+
+                    <EditText
+                        android:id="@+id/minLimit"
+                        style="@style/trade_input"
+                        android:hint="@string/str_min"
+                        android:inputType="numberDecimal"
+                        android:padding="4dp" />
+
+                    <TextView
+                        style="@style/textGrayCommonNormal"
+                        android:inputType="numberDecimal"
+                        android:text="CNY"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:text="-" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:bl_corners_radius="4dp"
+                    app:bl_solid_color="@color/white"
+                    app:bl_stroke_color="@color/gray_ccc"
+                    app:bl_stroke_width="1px"
+                    tools:ignore="MissingPrefix">
+
+                    <EditText
+                        android:id="@+id/maxLimit"
+                        style="@style/trade_input"
+                        android:hint="@string/str_max"
+                        android:inputType="numberDecimal"
+                        android:padding="4dp" />
+
+                    <TextView
+                        style="@style/textGrayCommonNormal"
+                        android:text="CNY"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:layout_margin="16dp"
+                android:text="@string/time" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <LinearLayout
+                    android:id="@+id/llStartTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:bl_corners_radius="4dp"
+                    app:bl_solid_color="@color/white"
+                    app:bl_stroke_color="@color/gray_ccc"
+                    app:bl_stroke_width="1px"
+                    tools:ignore="MissingPrefix">
+
+                    <TextView
+                        android:id="@+id/startTime"
+                        style="@style/trade_input"
+                        android:hint="@string/str_start_time"
+                        android:padding="4dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:text="-" />
+
+                <LinearLayout
+                    android:id="@+id/llEndTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:bl_corners_radius="4dp"
+                    app:bl_solid_color="@color/white"
+                    app:bl_stroke_color="@color/gray_ccc"
+                    app:bl_stroke_width="1px"
+                    tools:ignore="MissingPrefix">
+
+                    <TextView
+                        android:id="@+id/endTime"
+                        style="@style/trade_input"
+                        android:hint="@string/str_end_time"
+                        android:padding="4dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <View style="@style/line_ccc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            style="@style/textGrayCommonNormal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/cancel"
+            app:bl_ripple_color="@color/gray_ccc"
+            app:bl_ripple_enable="true"
+            app:bl_solid_color="@color/white"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/btn_ensure"
+            style="@style/textGrayCommonNormal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ensure"
+            android:textColor="@color/black"
+            app:bl_ripple_color="@color/gray_ccc"
+            app:bl_ripple_enable="true"
+            app:bl_solid_color="@color/base"
+            tools:ignore="MissingPrefix" />
+    </LinearLayout>
+</LinearLayout>

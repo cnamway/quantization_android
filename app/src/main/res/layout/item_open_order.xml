@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="openOrdersViewModel"
+            type="com.spark.modulespot.pojo.OpenOrdersResult.DataBean.ListBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="@{openOrdersViewModel.initType()}"
+                    android:textColor="@{openOrdersViewModel.initTypeColor() ? @color/green : @color/orange}"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_marginLeft="12dp"
+                    android:layout_weight="1"
+                    android:text="@{openOrdersViewModel.formatDate()}"
+                    android:textSize="@dimen/font_mini"/>
+
+                <TextView
+                    android:id="@+id/open_order_cancel"
+                    style="@style/textBlackNormal"
+                    android:text="@{openOrdersViewModel.initStatueType()}"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:text="@{openOrdersViewModel.initPrice()}"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="6dp"
+                        android:text="@{openOrdersViewModel.initPriceText()}"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:text="@{openOrdersViewModel.initNumber()}"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="6dp"
+                        android:text="@{openOrdersViewModel.initNumberText()}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:text="@{openOrdersViewModel.initDeal()}"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="6dp"
+                        android:text="@{openOrdersViewModel.initDealText()}"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

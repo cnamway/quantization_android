@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="googleOpenViewModel"
+            type="com.spark.qtz.app.me.safe.safecentre.google.step1.GoogleOpenViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/google_open_title"
+            layout="@layout/view_title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textBlackSmall"
+                android:layout_marginLeft="16dp"
+                android:text="@string/google_bind"
+                android:textSize="@dimen/sp_30"
+                android:textStyle="bold"/>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginTop="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="102dp"
+                    android:layout_height="102dp"
+                    android:src="@drawable/svg_google_open"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/google_open"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_margin="16dp"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.2"
+                    android:textColor="@color/gray_51"
+                    android:text="@string/google_bind_tips"/>
+            </LinearLayout>
+
+            <TextView
+                style="@style/textBlackNormal"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/open_now"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/base_dark"
+                app:bl_unpressed_color="@color/base"
+                binding:onClickCommand="@{googleOpenViewModel.googleBindOnClickCommand}"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,55 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="me.spark.mvvm">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+
+    <application>
+        <!--<activity-->
+            <!--android:name=".crash.DefaultErrorActivity"-->
+            <!--android:process=":error_activity"/>-->
+
+        <!--<provider-->
+            <!--android:name=".crash.CaocInitProvider"-->
+            <!--android:authorities="${applicationId}.customactivityoncrashinitprovider"-->
+            <!--android:exported="false"-->
+            <!--android:initOrder="101"/>-->
+
+        <activity
+            android:name=".utils.PermissionUtils$PermissionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:multiprocess="true"
+            android:theme="@style/ActivityTranslucent"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+
+        <receiver
+            android:name=".service.WakeUpReceiver"
+            android:process=":watch">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="com.xdandroid.hellodaemon.CANCEL_JOB_ALARM_SUB"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".service.AbsWorkService$WorkNotificationService"/>
+
+        <service
+            android:name=".service.JobSchedulerService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":watch"/>
+
+        <service
+            android:name=".service.WatchDogService"
+            android:process=":watch"/>
+
+        <service
+            android:name=".service.WatchDogService$WatchDogNotificationService"
+            android:process=":watch"/>
+    </application>
+</manifest>

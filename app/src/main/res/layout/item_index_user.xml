@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="indexUserResult"
+            type="com.spark.otcclient.pojo.FindPageResult.DataBean.RecordsBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_user_bg"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:text="ID"
+                    android:textStyle="bold"
+                    app:bl_corners_radius="20dp"
+                    app:bl_solid_color="@color/white" />
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="12dp"
+                    android:layout_weight="1"
+                    android:text="2738282"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView style="@style/imgEnter" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:text="邮    箱  772702216@qq.com"
+                        android:textSize="@dimen/font_mini" />
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="冻结资产 568.5654 USDT"
+                        android:textSize="@dimen/font_mini" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/dp_10"
+                    android:layout_height="@dimen/dp_10" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:text="@string/str_aviable_asset"
+                        android:textSize="@dimen/font_mini" />
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="568.5654 USDT"
+                        android:textColor="#C59A4A" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:bl_corners_topLeftRadius="14dp"
+    app:bl_corners_topRightRadius="14dp"
+    app:bl_solid_color="@color/gray_456">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/coin_recharge_name"
+            style="@style/textGrayCommonNormal"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@string/coin_recharge"/>
+
+        <TextView
+            android:id="@+id/coin_recharge_order"
+            style="@style/textGrayCommonSmall"
+            android:layout_gravity="center_vertical|right"
+            android:drawableLeft="@drawable/svg_order_gray"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="@string/record"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:layout_margin="16dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp">
+
+            <ImageView
+                android:id="@+id/coin_recharge_qr_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </android.support.v7.widget.CardView>
+
+
+        <TextView
+            style="@style/textBlackFont13"
+            android:text="@string/save_img"/>
+
+        <View
+            style="@style/line_ccc"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/tip"
+            style="@style/textGrayCommonFont13"
+            android:layout_margin="16dp"
+            android:lineSpacingMultiplier="1.2"/>
+
+        <View
+            style="@style/line_ccc"/>
+
+        <TextView
+            android:id="@+id/coin_recharge_address"
+            style="@style/textBlackFont13"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/coin_recharge_cancel"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:src="@drawable/svg_cancel"/>
+
+        <TextView
+            android:id="@+id/coin_recharge_choose"
+            style="@style/textBlackNormal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/choose_coin"
+            app:bl_ripple_color="@color/gray_456"
+            app:bl_ripple_enable="true"
+            app:bl_solid_color="@color/white"
+            tools:ignore="MissingPrefix"/>
+
+        <TextView
+            android:id="@+id/coin_recharge_copy"
+            style="@style/textGrayCommonNormal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/copy_address"
+            android:textColor="@color/base"
+            app:bl_ripple_color="@color/gray_456"
+            app:bl_ripple_enable="true"
+            app:bl_solid_color="@color/white"
+            tools:ignore="MissingPrefix"/>
+    </LinearLayout>
+</LinearLayout>

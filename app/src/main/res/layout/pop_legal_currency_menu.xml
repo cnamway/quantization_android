@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/trans"
+        style="@style/ll_item_52"
+        app:bl_corners_topLeftRadius="4dp"
+        app:bl_corners_topRightRadius="4dp"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/svg_trans_black"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:text="@string/coin_trans"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/order"
+        style="@style/ll_item_52"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/svg_order_black"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:text="@string/str_order_record"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/receipt_type"
+        style="@style/ll_item_52"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/svg_receipt_type_black"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:text="@string/str_payway"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pwd_update"
+        style="@style/ll_item_52"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/svg_pwd_black"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:text="@string/str_update_pass"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ad_create"
+        style="@style/ll_item_52"
+        app:bl_corners_bottomLeftRadius="4dp"
+        app:bl_corners_bottomRightRadius="4dp"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/svg_add"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="12dp"
+            android:text="@string/str_push_ad"/>
+    </LinearLayout>
+</LinearLayout>

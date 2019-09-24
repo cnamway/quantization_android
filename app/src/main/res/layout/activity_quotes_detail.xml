@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="quotesDetailViewModel"
+            type="com.spark.qtz.app.quotes.detail.QuotesDetailViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/quotes_detail_title"
+            layout="@layout/view_title"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="80dp">
+
+                    <!--title-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="164dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textBlackLarge"
+                            android:text="$5,236.18"
+                            android:textSize="@dimen/font_xlager"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginTop="16dp"
+                            android:text="+56.7（+1.02%）这一个月"
+                            android:textColor="@color/green"/>
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="12dp"
+                            android:text="24H最低：43,212.121 24H最低：43,212.121 24H最低：43,212.121"
+                            android:textSize="@dimen/font_mini"/>
+                    </LinearLayout>
+
+                    <!--chart-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"></LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="16dp"
+                            android:text="比特币"
+                            android:textStyle="bold"/>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:lineSpacingMultiplier="1.2"
+                            android:padding="16dp"
+                            android:text="比特币（Bitcoin）的概念最初由中本聪在2008年11月1日提出，并于2009年1月3日正式诞生。根据中本聪的思路设计发布的开源软件以及建构其上的P2P网络。比特币是一种P2P形式的虚拟的加密数字货币。点对点的传输意味着一个去中心化的支付系统。"/>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <!--发行时间-->
+                        <LinearLayout
+                            style="@style/ll_item_52">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/svg_date"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="16dp"
+                                android:layout_weight="1"
+                                android:text="发行时间"/>
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:text="2014.7.27"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <!--发行总量-->
+                        <LinearLayout
+                            style="@style/ll_item_52">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/svg_circulation_volume"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="16dp"
+                                android:layout_weight="1"
+                                android:text="发行总量"/>
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:text="9,631.15万"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <!--流通总量-->
+                        <LinearLayout
+                            style="@style/ll_item_52">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/svg_flow_rate"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="16dp"
+                                android:layout_weight="1"
+                                android:text="流通总量"/>
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:text="9,631.15万"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <!--众筹价格-->
+                        <LinearLayout
+                            style="@style/ll_item_52">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/svg_price"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="16dp"
+                                android:layout_weight="1"
+                                android:text="众筹价格"/>
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                android:text="----"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <!--官网-->
+                        <LinearLayout
+                            style="@style/ll_item_52">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/svg_website"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="16dp"
+                                android:layout_weight="1"
+                                android:text="官网"/>
+
+                            <TextView
+                                style="@style/textGrayCommonFont13"
+                                android:text="点击查看"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <!--白皮书-->
+                        <LinearLayout
+                            style="@style/ll_item_52">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/svg_white_paper"/>
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_marginLeft="16dp"
+                                android:layout_weight="1"
+                                android:text="白皮书"/>
+
+                            <TextView
+                                style="@style/textGrayCommonFont13"
+                                android:text="阅读白皮书"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+            <!--bottom-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="bottom"
+                android:background="@color/gray_f8"
+                android:paddingBottom="8dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="买入"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_normal"
+                    app:bl_corners_radius="4dp"
+                    app:bl_pressed_color="@color/green_dark"
+                    app:bl_unpressed_color="@color/green"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="卖出"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_normal"
+                    app:bl_corners_radius="4dp"
+                    app:bl_pressed_color="@color/orange_dark"
+                    app:bl_unpressed_color="@color/orange"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:bl_corners_radius="4dp"
+                    app:bl_pressed_color="@color/gray_common_dark"
+                    app:bl_unpressed_color="@color/gray_common">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/svg_kline_white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:text="K线图"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_small"/>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="indexUserDetailResult"
+            type="com.spark.otcclient.pojo.FindPageResult.DataBean.RecordsBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:bl_corners_radius="4dp"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/main_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_10"
+                app:bl_corners_topLeftRadius="4dp"
+                app:bl_corners_topRightRadius="4dp"
+                app:bl_solid_color="#083F86">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="XTR/USDT"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView style="@style/imgEnter" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_10"
+                    android:layout_weight="1" />
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:gravity="center"
+                    android:text="策略撤单"
+                    android:textColor="@color/color_light_blue"
+                    android:textSize="@dimen/font_mini" />
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:gravity="center"
+                    android:text="全部撤单"
+                    android:textColor="@color/color_light_blue"
+                    android:textSize="@dimen/font_mini" />
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:text="全部平仓"
+                    android:textColor="@color/color_light_blue"
+                    android:textSize="@dimen/font_mini" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="当前持仓(张)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="浮动盈亏(USDT)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="已实现盈亏(USDT)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="止损价格(USDT)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="止损时间"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:text="强制平仓点(USDT)"
+                            android:textSize="@dimen/font_mini" />
+
+                        <TextView
+                            style="@style/textGrayCommonSmall"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="2600"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_mini" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

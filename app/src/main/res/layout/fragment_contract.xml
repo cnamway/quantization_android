@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="contractViewModel"
+            type="com.spark.qtz.app.trade.contract.ContractViewModel"/>
+    </data>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <!--title-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:paddingLeft="16dp"
+                    android:text="@{contractViewModel.symbolNameTV}"/>
+
+                <ImageView
+                    android:id="@+id/symbol_select"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:padding="12dp"
+                    android:src="@drawable/svg_pull_down_black"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    onClickCommand="@{contractViewModel.goKline}"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:padding="16dp"
+                    android:src="@drawable/svg_kline"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white"/>
+
+                <ImageView
+                    android:id="@+id/contract_menu"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:padding="16dp"
+                    android:src="@drawable/svg_more"
+                    android:visibility="gone"
+                    app:bl_ripple_color="@color/gray_ccc"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/white"/>
+            </LinearLayout>
+
+            <View style="@style/line_ccc"/>
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!--交易-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:orientation="vertical">
+                            <!--市价、限价-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/buy_type"
+                                    style="@style/textGrayCommonSmall"
+                                    android:drawableRight="@drawable/svg_pull_down"
+                                    android:drawablePadding="4dp"
+                                    android:gravity="center_vertical"
+                                    android:text="@{contractViewModel.buyTypeName}"
+                                    android:textStyle="bold"/>
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"/>
+
+                                <TextView
+                                    android:id="@+id/lever_select"
+                                    style="@style/textGrayCommonSmall"
+                                    android:drawableRight="@drawable/svg_pull_down"
+                                    android:drawablePadding="4dp"
+                                    android:gravity="center_vertical"
+                                    android:text="@{contractViewModel.leverNum}"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+                            <!--价格-->
+                            <LinearLayout
+                                android:id="@+id/llPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="42dp"
+                                android:layout_marginTop="12dp"
+                                android:orientation="horizontal"
+                                android:visibility="@{contractViewModel.buyType ? View.GONE : View.VISIBLE}"
+                                app:bl_corners_radius="4dp"
+                                app:bl_solid_color="@color/white"
+                                app:bl_stroke_color="@color/gray_ccc"
+                                app:bl_stroke_width="1px">
+
+                                <ImageView
+                                    onClickCommand="@{contractViewModel.priceSubtractClickCommand}"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:padding="6dp"
+                                    android:src="@drawable/svg_decrease"/>
+
+                                <View style="@style/line_ccc_vertical"/>
+
+                                <EditText
+                                    android:id="@+id/et_price"
+                                    style="@style/trade_input"
+                                    android:hint="@string/price"
+                                    android:inputType="numberDecimal"
+                                    android:padding="4dp"
+                                    android:text="@={contractViewModel.priceEt}"/>
+
+                                <View style="@style/line_ccc_vertical"/>
+
+                                <ImageView
+                                    onClickCommand="@{contractViewModel.priceAddClickCommand}"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:padding="6dp"
+                                    android:src="@drawable/svg_crease"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/llMarketPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="42dp"
+                                android:layout_marginTop="12dp"
+                                android:background="@drawable/grey_cc_bg"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:visibility="@{contractViewModel.buyType ? View.VISIBLE : View.GONE}">
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:text="@string/trade_at_best_price"/>
+                            </LinearLayout>
+
+
+                            <!--数量-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="42dp"
+                                android:layout_marginTop="8dp"
+                                android:orientation="horizontal"
+                                app:bl_corners_radius="4dp"
+                                app:bl_solid_color="@color/white"
+                                app:bl_stroke_color="@color/gray_ccc"
+                                app:bl_stroke_width="1px">
+
+                                <ImageView
+                                    onClickCommand="@{contractViewModel.numberSubtractClickCommand}"
+                                    android:layout_width="42dp"
+                                    android:layout_height="42dp"
+                                    android:padding="6dp"
+                                    android:src="@drawable/svg_decrease"/>
+
+                                <View style="@style/line_ccc_vertical"/>
+
+                                <EditText
+                                    android:id="@+id/et_num"
+                                    style="@style/trade_input"
+                                    android:hint="@string/hands"
+                                    android:inputType="number"
+                                    android:padding="4dp"
+                                    android:text="@={contractViewModel.numberEt}"/>
+
+                                <View style="@style/line_ccc_vertical"/>
+
+                                <ImageView
+                                    onClickCommand="@{contractViewModel.numberAddClickCommand}"
+                                    android:layout_width="42dp"
+                                    android:layout_height="42dp"
+                                    android:padding="6dp"
+                                    android:src="@drawable/svg_crease"/>
+                            </LinearLayout>
+
+                            <com.spark.qtz.ui.tablayout.SegmentTabLayout
+                                android:id="@+id/seekBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="28dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="6dp"
+                                app:tl_bar_color="@color/gray_f3"
+                                app:tl_bar_stroke_color="@color/gray_f3"
+                                app:tl_indicator_anim_enable="true"
+                                app:tl_indicator_bounce_enable="false"
+                                app:tl_indicator_color="@color/base"
+                                app:tl_tab_space_equal="true"
+                                app:tl_textSelectColor="@color/white"
+                                app:tl_textUnselectColor="@color/gray_common"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:text="@{contractViewModel.numberAvailable}"
+                                    android:textSize="@dimen/font_mini"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:text="@{contractViewModel.commissionAccount}"
+                                    android:textSize="@dimen/font_mini"/>
+                            </LinearLayout>
+                            <!--登录后购买-->
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                onClickCommand="@{contractViewModel.tradeMoreCommand}"
+                                android:layout_width="match_parent"
+                                android:layout_height="42dp"
+                                android:layout_marginTop="12dp"
+                                android:gravity="center"
+                                android:text="@string/bullish"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                app:bl_corners_radius="4dp"
+                                app:bl_ripple_color="@color/green_dark"
+                                app:bl_ripple_enable="true"
+                                app:bl_solid_color="@color/green"/>
+
+                            <TextView
+                                style="@style/textGrayCommonNormal"
+                                onClickCommand="@{contractViewModel.tradeEmptyCommand}"
+                                android:layout_width="match_parent"
+                                android:layout_height="42dp"
+                                android:layout_marginTop="6dp"
+                                android:gravity="center"
+                                android:text="@string/bearish"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                app:bl_corners_radius="4dp"
+                                app:bl_ripple_color="@color/orange_dark"
+                                app:bl_ripple_enable="true"
+                                app:bl_solid_color="@color/orange"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp">
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:text="@string/available_funds"
+                                    android:textSize="@dimen/font_mini"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:text="@{contractViewModel.accountAvailable}"
+                                    android:textSize="@dimen/font_mini"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp">
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:text="@string/occupation_margin"
+                                    android:textSize="@dimen/font_mini"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:text="@{contractViewModel.accountOccupy}"
+                                    android:textSize="@dimen/font_mini"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp">
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:text="@string/freezing_margin"
+                                    android:textSize="@dimen/font_mini"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:text="@{contractViewModel.accountFreeze}"
+                                    android:textSize="@dimen/font_mini"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp">
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:text="@string/equity"
+                                    android:textSize="@dimen/font_mini"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:text="@{contractViewModel.rights}"
+                                    android:textSize="@dimen/font_mini"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp">
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:text="@string/risk_rate"
+                                    android:textSize="@dimen/font_mini"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:text="@{contractViewModel.riskRate}"
+                                    android:textSize="@dimen/font_mini"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                onClickCommand="@{contractViewModel.transWalletClickCommand}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:gravity="center_vertical">
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:src="@drawable/svg_trans_circel"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/transfer_of_funds"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!--价格/数量-->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2.5"
+                            android:orientation="vertical"
+                            android:paddingLeft="16dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingBottom="8dp">
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:layout_weight="1"
+                                    android:ellipsize="end"
+                                    android:gravity="left"
+                                    android:maxLines="1"
+                                    android:text="@{contractViewModel.priceTag}"
+                                    android:textSize="@dimen/font_mini"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:layout_weight="1"
+                                    android:ellipsize="end"
+                                    android:gravity="right"
+                                    android:maxLines="1"
+                                    android:text="@{contractViewModel.numberTag}"
+                                    android:textSize="@dimen/font_mini"/>
+                            </LinearLayout>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_sell"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <LinearLayout
+                                onClickCommand="@{contractViewModel.closePriceClickCommond}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_market_price"
+                                    style="@style/textGrayCommonNormal"
+                                    android:layout_width="wrap_content"
+                                    android:text="@{contractViewModel.closePrice}"
+                                    android:textColor="@{contractViewModel.closePriceType ? @color/green : @color/orange}"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@{contractViewModel.priceConvert}"
+                                    android:textColor="@color/gray_common_8c"
+                                    android:textSize="@dimen/font_mini"/>
+                            </LinearLayout>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_buy"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View style="@style/line_ccc"/>
+
+                    <com.spark.qtz.ui.tablayout.CommonTabLayout
+                        android:id="@+id/tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@color/white"
+                        app:tl_iconVisible="false"
+                        app:tl_indicator_color="@color/base_dark"
+                        app:tl_indicator_height="2dp"
+                        app:tl_tab_padding="6dp"
+                        app:tl_tab_space_equal="true"
+                        app:tl_textBold="SELECT"
+                        app:tl_textSelectColor="@color/base_dark"
+                        app:tl_textUnselectColor="#94374155"
+                        app:tl_textsize="@dimen/font_normal"/>
+
+                    <View style="@style/line_ccc"/>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            onClickCommand="@{contractViewModel.loginClickCommond}"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="24dp"
+                            android:paddingLeft="32dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="32dp"
+                            android:paddingBottom="8dp"
+                            android:text="@string/str_login"
+                            android:textColor="@color/white"
+                            android:visibility="@{contractViewModel.loginStatue ? View.GONE : View.VISIBLE}"
+                            app:bl_corners_radius="4dp"
+                            app:bl_ripple_color="@color/green_dark"
+                            app:bl_ripple_enable="true"
+                            app:bl_solid_color="@color/green"/>
+
+                        <FrameLayout
+                            android:id="@+id/fragment_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:visibility="@{contractViewModel.loginStatue ? View.VISIBLE : View.GONE}"/>
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>

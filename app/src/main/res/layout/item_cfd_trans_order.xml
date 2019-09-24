@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="propertyDetails"
+            type="com.spark.acclient.pojo.CoinTransDetailsResult.DataBean.RecordsBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="@{propertyDetails.initType()}"
+                    android:textColor="@{propertyDetails.initTypeColor() ? @color/green : @color/orange}"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:text="@{propertyDetails.formatDate()}"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/completed"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textBlackNormal"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@{propertyDetails.formatAmount()}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_width="50dp"
+                    android:gravity="left"
+                    android:text="@string/type"/>
+
+                <TextView
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@{propertyDetails.formatTypeName()}"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

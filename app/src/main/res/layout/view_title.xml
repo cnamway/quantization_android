@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewTitle"
+            type="com.spark.qtz.bean.TitleBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/fake_status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <LinearLayout
+            android:id="@+id/llHeader"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/bg_main"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/title_root_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/transparent">
+
+                <ImageView
+                    android:id="@+id/title_left_img"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:src="@mipmap/icon_back_white"
+                    android:visibility="@{viewTitle.isShowLeftImg?View.VISIBLE:View.GONE}" />
+
+                <TextView
+                    android:id="@+id/title_left_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center"
+                    android:text="@{viewTitle.leftTV}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_small"
+                    android:visibility="@{viewTitle.isShowLeftTV?View.VISIBLE:View.GONE}" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/title_name_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@{viewTitle.titleNameLeft}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_lager"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/title_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@{viewTitle.titleName}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_lager" />
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/title_root_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:bl_ripple_color="@color/gray_ccc"
+                app:bl_ripple_enable="true"
+                app:bl_solid_color="@color/transparent">
+
+                <ImageView
+                    android:id="@+id/title_right_img"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:visibility="@{viewTitle.isShowRightImg?View.VISIBLE:View.INVISIBLE}" />
+
+                <TextView
+                    android:id="@+id/title_right_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:text="@{viewTitle.rightTV}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_small"
+                    android:visibility="@{viewTitle.isShowRightTV?View.VISIBLE:View.INVISIBLE}" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

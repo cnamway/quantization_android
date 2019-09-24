@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="adUpResult"
+            type="com.spark.otcclient.pojo.AdSelfUpFindResult.DataBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:bl_ripple_color="@color/gray_ccc"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="@{adUpResult.formatType()}"
+                    android:textColor="@{adUpResult.isBuyType() ? @color/green : @color/orange}"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginTop="8dp"
+                    android:text="@{adUpResult.coinName}"/>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_marginTop="4dp"
+                    android:text="@{adUpResult.formatLimit()}"
+                    android:textSize="@dimen/font_mini"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/svg_alipay"
+                        android:visibility="@{adUpResult.isSupportAliPay() ? View.VISIBLE : View.GONE}"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/svg_wechatpay"
+                        android:visibility="@{adUpResult.isSupportWeChatPay() ? View.VISIBLE : View.GONE}"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/svg_bankpay"
+                        android:visibility="@{adUpResult.isSupportBankPay() ? View.VISIBLE : View.GONE}"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/svg_pay_paypal"
+                        android:visibility="@{adUpResult.isSupportPayPalPay() ? View.VISIBLE : View.GONE}"/>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:layout_marginTop="8dp"
+                    android:text="@{adUpResult.formatPrice()}"/>
+
+                <TextView
+                    style="@style/textGrayCommonSmall"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/on_the_shelf"
+                    android:textSize="@dimen/font_mini"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+    </LinearLayout>
+</layout>

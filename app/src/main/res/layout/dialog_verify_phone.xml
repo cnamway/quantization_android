@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/str_enter_sms_code"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textSize="20sp"-->
+    <!--android:textStyle="bold"/>-->
+
+    <ImageView
+        android:id="@+id/ivCancel"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:padding="3dp"
+        android:src="@drawable/svg_cancel" />
+
+    <com.spark.qtz.ui.VerificationCodeInput
+        android:id="@+id/phoneInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        app:box="4"
+        app:child_h_padding="5dp"
+        app:child_height="60dp"
+        app:child_width="60dp"
+        app:inputType="number" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <cn.iwgang.countdownview.CountdownView
+            android:id="@+id/smsTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:visibility="gone"
+            app:isShowHour="false"
+            app:isShowMinute="false"
+            app:isShowSecond="true"
+            app:suffixGravity="center" />
+
+        <TextView
+            android:id="@+id/tvTimeTXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="@string/resend_load"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_verify_code"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

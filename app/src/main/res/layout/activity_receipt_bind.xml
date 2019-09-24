@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="receiptBindViewModel"
+            type="com.spark.qtz.app.me.setting.receipt.bind.ReceiptBindViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/receipt_bind_title"
+            layout="@layout/view_title"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_marginLeft="16dp"
+                    android:text="@{receiptBindViewModel.titleText}"
+                    android:textSize="@dimen/sp_30"
+                    android:textStyle="bold"/>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginTop="16dp"/>
+
+                <LinearLayout
+                    style="@style/ll_item_64"
+                    android:layout_height="52dp">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="72dp"
+                        android:text="@string/name"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:hint="@string/name_hint"
+                        android:text="@={receiptBindViewModel.nameText}"
+                        android:textSize="@dimen/font_normal"/>
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginLeft="16dp"
+                    android:visibility="@{receiptBindViewModel.typeVisiable ? View.VISIBLE : View.GONE}"/>
+
+                <LinearLayout
+                    style="@style/ll_item_64"
+                    android:layout_height="52dp"
+                    android:visibility="@{receiptBindViewModel.typeVisiable ? View.VISIBLE : View.GONE}">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="72dp"
+                        android:text="@{receiptBindViewModel.typeText}"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:hint="@{receiptBindViewModel.typeHintText}"
+                        android:text="@={receiptBindViewModel.typeAddressText}"
+                        android:textSize="@dimen/font_normal"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginLeft="16dp"
+                    android:visibility="@{receiptBindViewModel.typeVisiable ? View.GONE : View.VISIBLE}"/>
+                <!--银行卡-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{receiptBindViewModel.typeVisiable ? View.GONE : View.VISIBLE}">
+
+                    <LinearLayout
+                        style="@style/ll_item_64"
+                        android:layout_height="52dp">
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_width="72dp"
+                            android:text="@string/str_bank_name"/>
+
+                        <EditText
+                            style="@style/trade_input"
+                            android:enabled="false"
+                            android:hint="@string/please_choose"
+                            android:text="@={receiptBindViewModel.bankText}"
+                            android:textSize="@dimen/font_normal"/>
+
+                        <ImageView
+                            onClickCommand="@{receiptBindViewModel.chooseBankList}"
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:padding="8dp"
+                            android:src="@drawable/svg_pull_down"
+                            app:bl_ripple_color="@color/gray_ccc"
+                            app:bl_ripple_enable="true"
+                            app:bl_solid_color="@color/white"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:layout_marginLeft="16dp"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_64"
+                        android:layout_height="52dp">
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_width="72dp"
+                            android:text="@string/str_branch"/>
+
+                        <EditText
+                            style="@style/trade_input"
+                            android:hint="@string/str_enter_branch"
+                            android:text="@={receiptBindViewModel.branchText}"
+                            android:textSize="@dimen/font_normal"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:layout_marginLeft="16dp"/>
+
+                    <LinearLayout
+                        style="@style/ll_item_64"
+                        android:layout_height="52dp">
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_width="72dp"
+                            android:text="@string/str_bank_number"/>
+
+                        <EditText
+                            style="@style/trade_input"
+                            android:hint="@string/str_enter_bank_number"
+                            android:text="@={receiptBindViewModel.bankAddressText}"
+                            android:textSize="@dimen/font_normal"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginLeft="16dp"/>
+
+                <LinearLayout
+                    style="@style/ll_item_64"
+                    android:layout_height="52dp">
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="72dp"
+                        android:text="@string/legal_currency_pwd"/>
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:hint="@string/trade_pwd_hint"
+                        android:inputType="textPassword"
+                        android:text="@={receiptBindViewModel.pwdText}"
+                        android:textSize="@dimen/font_normal"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/line_ccc"/>
+
+                <FrameLayout
+                    android:id="@+id/receipt_bind_qrcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_margin="16dp"
+                    android:visibility="@{receiptBindViewModel.qrCodeVisiable ? View.VISIBLE : View.GONE}"
+                    app:bl_corners_radius="4dp"
+                    app:bl_solid_color="@color/gray_f3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/svg_add_solid"/>
+
+                        <TextView
+                            style="@style/textGrayCommonNormal"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/str_upload"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        url="@{receiptBindViewModel.qrCodeUrl}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"/>
+                </FrameLayout>
+
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    onClickCommand="@{receiptBindViewModel.submitCommand}"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_margin="16dp"
+                    android:gravity="center"
+                    android:text="@{receiptBindViewModel.bottomText}"
+                    android:textStyle="bold"
+                    app:bl_corners_radius="4dp"
+                    app:bl_pressed_color="@color/base_dark"
+                    app:bl_unpressed_color="@color/base"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

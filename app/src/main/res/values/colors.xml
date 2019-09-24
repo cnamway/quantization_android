@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0B306E</color>
+    <color name="colorPrimaryDark">#0055B0</color>
+    <color name="colorAccent">#718495</color>
+
+    <color name="base">#0B306E</color>
+    <color name="base_dark">#0055B0</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="black21">#FF212121</color>
+    <color name="black0B">#0B0F15</color>
+    <color name="green">#52AF6C</color>
+    <color name="green_light">#ECFBEE</color>
+    <color name="green_dark">#22AF6C</color>
+    <color name="orange">#FF7D46</color>
+    <color name="orange_dark">#e16531</color>
+    <color name="gray_ccc">#CCCCCC</color>
+    <color name="gray_f7">#F7F7F7</color>
+    <color name="gray_f8">#F8F8F8</color>
+    <color name="gray_fb">#FBFBFB</color>
+    <color name="gray_f9">#F9F9F9</color>
+    <color name="gray_51">#515151</color>
+    <color name="gray_f3">#F3F6F7</color>
+    <color name="gray_f5">#F5F5F5</color>
+    <color name="gray_70">#707070</color>
+    <color name="gray_456">#F4F5f6</color>
+    <color name="gray_common">#718495</color>
+    <color name="gray_common_8c">#8C718495</color>
+    <color name="gray_common_light">#798499</color>
+    <color name="gray_common_dark">#518495</color>
+    <color name="login_out">#65D0021B</color>
+
+    <color name="red">#D0021B</color>
+    <color name="red_light">#FFE9EC</color>
+    <color name="blue">#4F86E4</color>
+    <color name="blue_light">#CDDCF7</color>
+    <color name="blue_dark">#4473C3</color>
+    <color name="kline_bg">#161C25</color>
+    <color name="kline_bg_light">#252E3B</color>
+    <color name="kline_bg_dark">#090f16</color>
+    <color name="depth_title">#2a3a46</color>
+    <color name="commission_bg">#1B2532</color>
+    <color name="transparent">#00000000</color>
+    <color name="bg_main">#101F4A</color>
+    <color name="main_color">#0B306E</color>
+    <color name="color_bottom_selected">#4C7AF3</color>
+    <color name="color_bottom_unselected">#8F9AB3</color>
+    <color name="et_bg">#0C2C65</color>
+    <color name="color_blue">#0055B0</color>
+    <color name="color_light_blue">#6FAEFF</color>
+    <color name="color_light_blue2">#0F2461</color>
+    <color name="gray_b2">#B2BAD1</color>
+    <color name="half_transparent">#33000000</color>
+</resources>

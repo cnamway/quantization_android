@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cfdKlineViewModel"
+            type="com.spark.qtz.app.trade.contract.kline.CfdKlineViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/kline_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/fake_status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+            <!--title-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/title_left"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:src="@drawable/svg_back_white"
+                    app:bl_ripple_color="@color/kline_bg_light"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/kline_bg"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{cfdKlineViewModel.initTitle()}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_lager"/>
+
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:background="@color/kline_bg_dark"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="108dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonNormal"
+                        android:text="@{cfdKlineViewModel.close}"
+                        android:textColor="@color/white"
+                        android:maxLines="1"
+                        android:textSize="@dimen/sp_30"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="8dp"
+                        android:maxLines="1"
+                        android:text="@{cfdKlineViewModel.convert}"
+                        android:textColor="@{cfdKlineViewModel.convertColor ? @color/green : @color/red}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:text="@string/_24h_high"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/_24h_low"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/_24h_size"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:maxLines="1"
+                        android:text="@{cfdKlineViewModel._24hourhigh}"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="6dp"
+                        android:maxLines="1"
+                        android:text="@{cfdKlineViewModel._24hourlow}"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        style="@style/textGrayCommonFont13"
+                        android:layout_marginTop="6dp"
+                        android:maxLines="1"
+                        android:text="@{cfdKlineViewModel._24hourcount}"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--tab-->
+            <LinearLayout
+                android:id="@+id/ll_tab_kline"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <RadioGroup
+                    android:id="@+id/kline_time_tab"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/kline_time_tab_ts"
+                        style="@style/klineRB"
+                        android:text="@string/line_text"
+                        app:bl_checked_solid_color="@color/black0B"
+                        app:bl_checked_textColor="@color/white"
+                        app:bl_corners_radius="12dp"
+                        app:bl_unChecked_solid_color="@color/kline_bg"
+                        app:bl_unChecked_textColor="@color/gray_common"
+                        tools:ignore="MissingPrefix"/>
+
+                    <RadioButton
+                        android:id="@+id/kline_time_1min"
+                        style="@style/klineRB"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/min1_text"
+                        app:bl_checked_solid_color="@color/black0B"
+                        app:bl_checked_textColor="@color/white"
+                        app:bl_corners_radius="12dp"
+                        app:bl_unChecked_solid_color="@color/kline_bg"
+                        app:bl_unChecked_textColor="@color/gray_common"
+                        tools:ignore="MissingPrefix"/>
+
+                    <RadioButton
+                        android:id="@+id/kline_time_5min"
+                        style="@style/klineRB"
+                        android:checked="true"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/min5_text"
+                        app:bl_checked_solid_color="@color/black0B"
+                        app:bl_checked_textColor="@color/white"
+                        app:bl_corners_radius="12dp"
+                        app:bl_unChecked_solid_color="@color/kline_bg"
+                        app:bl_unChecked_textColor="@color/gray_common"
+                        tools:ignore="MissingPrefix"/>
+
+                    <RadioButton
+                        android:id="@+id/kline_time_1hour"
+                        style="@style/klineRB"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/hour1_text"
+                        app:bl_checked_solid_color="@color/black0B"
+                        app:bl_checked_textColor="@color/white"
+                        app:bl_corners_radius="12dp"
+                        app:bl_unChecked_solid_color="@color/kline_bg"
+                        app:bl_unChecked_textColor="@color/gray_common"
+                        tools:ignore="MissingPrefix"/>
+
+                    <RadioButton
+                        android:id="@+id/kline_time_1day"
+                        style="@style/klineRB"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/day1_text"
+                        app:bl_checked_solid_color="@color/black0B"
+                        app:bl_checked_textColor="@color/white"
+                        app:bl_corners_radius="12dp"
+                        app:bl_unChecked_solid_color="@color/kline_bg"
+                        app:bl_unChecked_textColor="@color/gray_common"
+                        tools:ignore="MissingPrefix"/>
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/kline_load_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/kline_load_more_tv"
+                            style="@style/textGrayCommonSmall"
+                            android:text="@string/more"
+                            android:textSize="@dimen/font_mini"
+                            app:bl_selected_textColor="@color/white"
+                            app:bl_unSelected_textColor="@color/gray_common"/>
+
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_gravity="bottom"
+                            android:src="@drawable/svg_kline_more"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/kline_load_setting"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/svg_setting"/>
+
+                    <ImageView
+                        android:id="@+id/kline_load_full_screen"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/svg_fullscreen"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc_1dp"
+                android:background="@color/kline_bg_dark"/>
+
+            <!--kline-->
+            <com.spark.klinelib.KLineChartView
+                android:id="@+id/klineChartView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                onClickCommand="@{cfdKlineViewModel.goTrade}"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center"
+                android:text="@string/to_trade"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_normal"
+                app:bl_pressed_color="@color/blue_dark"
+                app:bl_solid_color="@color/blue"
+                app:bl_unpressed_color="@color/blue"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

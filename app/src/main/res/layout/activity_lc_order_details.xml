@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="lcOrderDetailsViewModel"
+            type="com.spark.qtz.app.trade.legal_currency.order.details.LcOrderDetailsViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/commission_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/fake_status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+            <!--title-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:orientation="horizontal">
+
+                <ImageView
+                    onClickCommand="@{lcOrderDetailsViewModel.finishClickCommand}"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:src="@drawable/svg_back_white"
+                    app:bl_ripple_color="@color/kline_bg_light"
+                    app:bl_ripple_enable="true"
+                    app:bl_solid_color="@color/commission_bg"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_lager"/>
+
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+                android:id="@+id/root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:bl_corners_topLeftRadius="4dp"
+                    app:bl_corners_topRightRadius="4dp"
+                    app:bl_solid_color="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@string/total_turnover"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_marginTop="8dp"
+                            android:text="@{lcOrderDetailsViewModel.money}"
+                            android:textSize="@dimen/font_xlager"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_status"
+                        android:layout_width="88dp"
+                        android:layout_height="72dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="12dp"
+                        app:bl_corners_bottomRightRadius="6dp"
+                        app:bl_corners_topRightRadius="6dp"
+                        app:bl_solid_color="@color/commission_bg"/>
+
+                    <View
+                        style="@style/line_ccc"
+                        android:layout_weight="1"/>
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="12dp"
+                        app:bl_corners_bottomLeftRadius="6dp"
+                        app:bl_corners_topLeftRadius="6dp"
+                        app:bl_solid_color="@color/commission_bg"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    app:bl_corners_bottomLeftRadius="4dp"
+                    app:bl_corners_bottomRightRadius="4dp"
+                    app:bl_solid_color="@color/white">
+
+                    <LinearLayout
+                        style="@style/ll_item_56"
+                        android:visibility="@{lcOrderDetailsViewModel.isAppeal ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:gravity="center"
+                            android:text="@{lcOrderDetailsViewModel.nameShort}"
+                            android:textStyle="bold"
+                            app:bl_corners_radius="20dp"
+                            app:bl_solid_color="@color/base"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:text="@{lcOrderDetailsViewModel.name}"/>
+
+                            <TextView
+                                style="@style/textGrayCommonFont13"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/str_order_appealing"/>
+                        </LinearLayout>
+
+                        <TextView
+                            onClickCommand="@{lcOrderDetailsViewModel.chatOnClickCommand}"
+                            style="@style/textGrayCommonNormal"
+                            android:layout_marginLeft="12dp"
+                            android:drawableLeft="@drawable/svg_communicate"
+                            android:drawablePadding="4dp"
+                            android:paddingBottom="6dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="6dp"
+                            android:text="@string/str_go_chat"
+                            app:bl_corners_radius="4dp"
+                            app:bl_solid_color="@color/white"
+                            app:bl_stroke_color="@color/gray_common"
+                            app:bl_stroke_width="1px"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_48"
+                        android:visibility="@{lcOrderDetailsViewModel.isAppeal ? View.GONE : View.VISIBLE}">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_weight="1"
+                            android:text="@string/str_store"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@{lcOrderDetailsViewModel.name}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_48"
+                        android:visibility="@{lcOrderDetailsViewModel.isCancel ? View.GONE : View.VISIBLE}">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_weight="1"
+                            android:text="@string/str_paypay"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/svg_wechatpay"
+                            android:visibility="@{lcOrderDetailsViewModel.isWeChatPay ? View.VISIBLE : View.GONE}"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:src="@drawable/svg_alipay"
+                            android:visibility="@{lcOrderDetailsViewModel.isAliPay ? View.VISIBLE : View.GONE}"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:src="@drawable/svg_bankpay"
+                            android:visibility="@{lcOrderDetailsViewModel.isBankPay ? View.VISIBLE : View.GONE}"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:src="@drawable/svg_pay_paypal"
+                            android:visibility="@{lcOrderDetailsViewModel.isPayPalPay ? View.VISIBLE : View.GONE}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_48">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_weight="1"
+                            android:text="@string/str_price_single"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@{lcOrderDetailsViewModel.price}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_48">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_weight="1"
+                            android:text="@string/number"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@{lcOrderDetailsViewModel.number}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_48">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_weight="1"
+                            android:text="@string/str_money"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@{lcOrderDetailsViewModel.money}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_48">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_weight="1"
+                            android:text="@string/str_createtime"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@{lcOrderDetailsViewModel.createTime}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_48">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@string/str_order_sn"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{lcOrderDetailsViewModel.orderSn}"/>
+
+                        <ImageView
+                            onClickCommand="@{lcOrderDetailsViewModel.orderSnOnClickCommand}"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="8dp"
+                            android:src="@drawable/svg_copy"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ll_item_48">
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:text="@string/str_reference_sn"/>
+
+                        <TextView
+                            style="@style/textBlackNormal"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@{lcOrderDetailsViewModel.referenceSn}"/>
+
+                        <ImageView
+                            onClickCommand="@{lcOrderDetailsViewModel.referenceSnOnClickCommand}"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="8dp"
+                            android:src="@drawable/svg_copy"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="passPortViewModel"
+            type="com.spark.qtz.app.me.safe.authentication.passport.PassPortViewModel"/>
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <LinearLayout
+                style="@style/ll_item_64"
+                android:layout_height="52dp">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="72dp"
+                    android:text="@string/name"/>
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/name_hint"
+                    android:text="@={passPortViewModel.userName}"
+                    android:textSize="@dimen/font_normal"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginLeft="16dp"/>
+
+            <LinearLayout
+                style="@style/ll_item_64"
+                android:layout_height="52dp">
+
+                <TextView
+                    style="@style/textBlackSmall"
+                    android:layout_width="72dp"
+                    android:text="@string/passport_num"/>
+
+                <EditText
+                    style="@style/trade_input"
+                    android:hint="@string/passport_num_hint"
+                    android:text="@={passPortViewModel.userPassPortNum}"
+                    android:textSize="@dimen/font_normal"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginLeft="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:text="@string/passport_up"/>
+
+                    <ImageView
+                        android:id="@+id/img_auth_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/svg_auth_up"
+                        binding:url="@{passPortViewModel.imgAuthUp}"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textGrayCommonSmall"
+                        android:text="@string/passport_handheld"/>
+
+                    <ImageView
+                        android:id="@+id/img_auth_handheld"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/svg_auth_down"
+                        binding:url="@{passPortViewModel.imgAuthHandheld}"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/id_card_auth_description"/>
+
+            <TextView
+                style="@style/textBlackNormal"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/upload"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/base_dark"
+                app:bl_unpressed_color="@color/base"
+                binding:onClickCommand="@{passPortViewModel.passPortUploadOnClickCommand}"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

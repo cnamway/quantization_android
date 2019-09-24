@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="googleRemoveViewModel"
+            type="com.spark.qtz.app.me.safe.safecentre.google.remove.GoogleRemoveViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/google_remove_title"
+            layout="@layout/view_title" />
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginLeft="16dp"
+            android:text="@string/google_remove"
+            android:textSize="@dimen/sp_30"
+            android:textStyle="bold" />
+
+        <View
+            style="@style/line_ccc"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            style="@style/textBlackLarge"
+            android:layout_marginTop="48dp"
+            android:textSize="@dimen/sp_30"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_width="100dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/google_code"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        style="@style/trade_input"
+                        android:layout_marginLeft="16dp"
+                        android:hint="@string/google_code_hint"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:text="@={googleRemoveViewModel.googleCode}"
+                        android:textSize="@dimen/font_normal" />
+
+                </LinearLayout>
+
+                <View style="@style/line_ccc" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        android:layout_width="100dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/pwd_login"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/user_password"
+                        style="@style/trade_input"
+                        android:layout_marginLeft="16dp"
+                        android:hint="@string/str_enter_login_pass"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:text="@={googleRemoveViewModel.loginPass}"
+                        android:textSize="@dimen/font_normal" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            style="@style/textBlackNormal"
+            binding:onClickCommand="@{googleRemoveViewModel.submitOnClickCommand}"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/google_remove"
+            android:textStyle="bold"
+            app:bl_corners_radius="4dp"
+            app:bl_pressed_color="@color/base_dark"
+            app:bl_unpressed_color="@color/base" />
+
+    </LinearLayout>
+</layout>

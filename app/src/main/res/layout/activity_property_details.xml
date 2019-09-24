@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="propertyDetailsViewModel"
+            type="com.spark.qtz.app.me.finance.property.details.PropertyDetailsViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/property_details_title"
+            layout="@layout/view_title"/>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/nestedScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="?attr/actionBarSize">
+
+                        <TextView
+                            style="@style/textBlackFont13"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="24dp"
+                            android:text="@{propertyDetailsViewModel.coinName}"
+                            android:textSize="@dimen/font_xxlager"
+                            android:textStyle="bold"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="16dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:gravity="left"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:text="@string/usable"
+                                    android:textColor="@color/gray_70"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_marginTop="12dp"
+                                    android:maxLines="1"
+                                    android:text="@{propertyDetailsViewModel.balance}"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:layout_weight="2"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:text="@string/freeze"
+                                    android:textColor="@color/gray_70"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_marginTop="12dp"
+                                    android:maxLines="1"
+                                    android:text="@{propertyDetailsViewModel.frozenBalance}"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:gravity="right"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/textGrayCommonFont13"
+                                    android:text="@string/convert2cny"
+                                    android:textColor="@color/gray_70"/>
+
+                                <TextView
+                                    style="@style/textGrayCommonSmall"
+                                    android:layout_marginTop="12dp"
+                                    android:maxLines="1"
+                                    android:text="@{propertyDetailsViewModel.transCNY}"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"
+                            android:background="@color/gray_f3"/>
+
+                        <LinearLayout
+                            style="@style/ll_item_52"
+                            android:layout_height="?attr/actionBarSize">
+
+                            <TextView
+                                style="@style/textBlackNormal"
+                                android:layout_weight="1"
+                                android:text="@string/financial_record"
+                                android:textStyle="bold"/>
+
+                            <ImageView
+                                android:id="@+id/filter"
+                                android:layout_width="?attr/actionBarSize"
+                                android:layout_height="?attr/actionBarSize"
+                                android:padding="13dp"
+                                android:src="@drawable/svg_filter"
+                                app:bl_ripple_color="@color/gray_ccc"
+                                app:bl_ripple_enable="true"
+                                app:bl_solid_color="@color/white"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_ccc"/>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <!--<android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_property_lock_details"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>-->
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_property_details"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                </android.support.v4.widget.NestedScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="bottom"
+                    android:background="@color/gray_f9"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:id="@+id/hide_1"
+                        style="@style/textBlackNormal"
+                        onClickCommand="@{propertyDetailsViewModel.coinInCommand}"
+                        android:drawableLeft="@drawable/svg_recharge_black"
+                        android:drawablePadding="4dp"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/coin_in"
+                        app:bl_corners_radius="20dp"
+                        app:bl_solid_color="@color/white"
+                        app:bl_stroke_color="@color/gray_ccc"
+                        app:bl_stroke_width="1px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/hide_2"
+                        style="@style/textBlackNormal"
+                        onClickCommand="@{propertyDetailsViewModel.coinOutCommand}"
+                        android:drawableLeft="@drawable/svg_collect_black"
+                        android:drawablePadding="4dp"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/coin_out"
+                        app:bl_corners_radius="20dp"
+                        app:bl_solid_color="@color/white"
+                        app:bl_stroke_color="@color/gray_ccc"
+                        app:bl_stroke_width="1px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        onClickCommand="@{propertyDetailsViewModel.coinTransCommand}"
+                        android:drawableLeft="@drawable/svg_trans_black"
+                        android:drawablePadding="4dp"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/coin_trans"
+                        app:bl_corners_radius="20dp"
+                        app:bl_solid_color="@color/white"
+                        app:bl_stroke_color="@color/gray_ccc"
+                        app:bl_stroke_width="1px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        style="@style/textBlackNormal"
+                        onClickCommand="@{propertyDetailsViewModel.coinTradeCommand}"
+                        android:drawablePadding="4dp"
+                        android:gravity="center"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/to_trade"
+                        app:bl_corners_radius="20dp"
+                        app:bl_solid_color="@color/base"/>
+                </LinearLayout>
+            </FrameLayout>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

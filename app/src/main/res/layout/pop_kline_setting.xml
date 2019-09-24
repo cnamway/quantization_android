@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/kline_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/textGrayCommonSmall"
+            android:text="@string/kline_main"/>
+
+        <View
+            style="@style/line_ccc_vertical"
+            android:layout_height="20dp"
+            android:layout_marginLeft="16dp"
+            android:background="@color/gray_common"/>
+
+        <TextView
+            android:id="@+id/tab_primary_ma"
+            style="@style/textGrayCommonSmall"
+            android:layout_width="52dp"
+            android:layout_marginLeft="16dp"
+            android:text="MA"
+            app:bl_selected_textColor="@color/white"
+            app:bl_unSelected_textColor="@color/gray_common"
+            tools:ignore="MissingPrefix"/>
+
+        <TextView
+            android:id="@+id/tab_primary_boll"
+            style="@style/textGrayCommonSmall"
+            android:layout_width="52dp"
+            android:layout_marginLeft="16dp"
+            android:text="BOLL"
+            app:bl_selected_textColor="@color/white"
+            app:bl_unSelected_textColor="@color/gray_common"
+            tools:ignore="MissingPrefix"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tab_primary_hide"
+            style="@style/textGrayCommonSmall"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:text="@string/hide"
+            app:bl_selected_textColor="@color/white"
+            app:bl_unSelected_textColor="@color/gray_common"
+            tools:ignore="MissingPrefix"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/textGrayCommonSmall"
+            android:text="@string/kline_child"/>
+
+        <View
+            style="@style/line_ccc_vertical"
+            android:layout_height="20dp"
+            android:layout_marginLeft="16dp"
+            android:background="@color/gray_common"/>
+
+        <TextView
+            android:id="@+id/tab_secondary_macd"
+            style="@style/textGrayCommonSmall"
+            android:layout_width="52dp"
+            android:layout_marginLeft="16dp"
+            android:text="MACD"
+            app:bl_selected_textColor="@color/white"
+            app:bl_unSelected_textColor="@color/gray_common"
+            tools:ignore="MissingPrefix"/>
+
+        <TextView
+            android:id="@+id/tab_secondary_kdj"
+            style="@style/textGrayCommonSmall"
+            android:layout_width="52dp"
+            android:layout_marginLeft="16dp"
+            android:text="KDJ"
+            app:bl_selected_textColor="@color/white"
+            app:bl_unSelected_textColor="@color/gray_common"
+            tools:ignore="MissingPrefix"/>
+
+        <TextView
+            android:id="@+id/tab_secondary_rsi"
+            style="@style/textGrayCommonSmall"
+            android:layout_width="52dp"
+            android:layout_marginLeft="16dp"
+            android:text="RSI"
+            app:bl_selected_textColor="@color/white"
+            app:bl_unSelected_textColor="@color/gray_common"
+            tools:ignore="MissingPrefix"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tab_secondary_hide"
+            style="@style/textGrayCommonSmall"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:text="@string/hide"
+            app:bl_selected_textColor="@color/white"
+            app:bl_unSelected_textColor="@color/gray_common"
+            tools:ignore="MissingPrefix"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="verifyCodeViewModel"
+            type="com.spark.qtz.app.me.user.register.verificationcode.VerifyCodeViewModel"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/verify_code_title"
+            layout="@layout/view_title"/>
+
+        <TextView
+            style="@style/textBlackSmall"
+            android:layout_marginTop="32dp"
+            android:text="@string/verify_code"
+            android:textSize="@dimen/sp_30"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/verify_code_phone"
+            style="@style/textBlackSmall"
+            android:layout_marginTop="12dp"
+            android:text=""
+            android:textColor="@color/gray_51"/>
+
+        <!--<com.spark.qtz.ui.VerificationCodeInput-->
+        <!--android:id="@+id/verify_code"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--app:box="4"-->
+        <!--app:child_h_padding="8dp"-->
+        <!--app:child_height="60dp"-->
+        <!--app:child_width="60dp"-->
+        <!--app:inputType="number"/>-->
+
+        <com.spark.qtz.ui.SMSCodeView
+            android:id="@+id/verify_code"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            app:borderMargin="20"
+            app:borderNum="4"
+            app:borderSize="48"
+            app:textColor="@color/base"
+            app:textSize="8"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <cn.iwgang.countdownview.CountdownView
+                android:id="@+id/verify_code_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                app:isShowHour="false"
+                app:isShowMinute="false"
+                app:isShowSecond="true"
+                app:suffixGravity="center"
+                app:timeTextColor="@color/gray_common"
+                app:timeTextSize="@dimen/font_small"/>
+
+            <TextView
+                style="@style/textGrayCommonSmall"
+                android:text="@string/resend_load"/>
+
+            <TextView
+                android:id="@+id/verify_code_resend"
+                style="@style/textGrayCommonSmall"
+                android:layout_marginLeft="16dp"
+                android:text="@string/resend"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

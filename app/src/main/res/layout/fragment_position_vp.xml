@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="positionVPViewModel"
+            type="com.spark.qtz.app.trade.contract.vp.position.PositionVPViewModel"/>
+    </data>
+
+    <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/head"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/textBlackSmall"
+                android:text="@string/total_profit_loss"/>
+
+            <TextView
+                style="@style/textBlackSmall"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:text="@{positionVPViewModel.profitAndLossAll}"
+                android:textColor="@{positionVPViewModel.isProfitOrLoss ? @color/green : @color/orange}"/>
+
+            <TextView
+                android:id="@+id/position_close_one_key"
+                style="@style/textBlackSmall"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:text="@string/one_key_close"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/blue_dark"
+                app:bl_unpressed_color="@color/blue"
+                tools:ignore="MissingPrefix"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_ccc"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+</layout>

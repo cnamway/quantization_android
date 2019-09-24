@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:bl_corners_topLeftRadius="14dp"
+    app:bl_corners_topRightRadius="14dp"
+    app:bl_solid_color="@color/gray_456">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/coin_name"
+            style="@style/textBlackNormal"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/textBlackSmall"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvTradeType"
+                style="@style/textGrayCommonSmall"
+                android:text="@string/str_ad_buy_way"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:id="@+id/buy_type_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/buy_type"
+                    style="@style/textBlackNormal"
+                    android:layout_weight="1"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/svg_pull_down"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/type_title"
+                style="@style/textGrayCommonSmall"
+                android:layout_marginTop="12dp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/number"
+                    style="@style/trade_input"
+                    android:hint="@string/input_hint"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:textSize="@dimen/font_normal"/>
+
+                <TextView
+                    android:id="@+id/type_unit"
+                    style="@style/textGrayCommonNormal"
+                    android:layout_marginLeft="16dp"/>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"
+                android:layout_marginTop="8dp"/>
+
+            <LinearLayout
+                android:id="@+id/ll_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/limit"
+                    style="@style/textGrayCommonFont13"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/gray_ccc"/>
+
+                <View
+                    style="@style/line_ccc"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp">
+
+                <TextView
+                    style="@style/textBlackNormal"
+                    android:text="@string/turnover"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/trade_volume"
+                        style="@style/textBlackNormal"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/trade_num"
+                        style="@style/textBlackFont13"
+                        android:layout_marginTop="6dp"/>
+
+                    <TextView
+                        android:id="@+id/trade_use"
+                        style="@style/textBlackFont13"
+                        android:layout_marginTop="6dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <TextView
+                android:id="@+id/order"
+                style="@style/textBlackNormal"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/str_buy_create"
+                android:textStyle="bold"
+                app:bl_corners_radius="4dp"
+                app:bl_pressed_color="@color/base_dark"
+                app:bl_unpressed_color="@color/base"
+                tools:ignore="MissingPrefix"/>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/cancel"
+        style="@style/textGrayCommonNormal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/cancel"
+        app:bl_ripple_color="@color/gray_456"
+        app:bl_ripple_enable="true"
+        app:bl_solid_color="@color/white"
+        tools:ignore="MissingPrefix"/>
+</LinearLayout>

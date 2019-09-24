@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="legalCurAccountViewModel"
+            type="com.spark.qtz.app.me.finance.property.legal_currency.LegalCurAccountViewModel"/>
+    </data>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.spark.qtz.ui.progresslayout.ProgressLinearLayout
+            android:id="@+id/lc_cur_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="124dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="12dp"
+                android:paddingRight="12dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:bl_corners_topLeftRadius="6dp"
+                    app:bl_corners_topRightRadius="6dp"
+                    app:bl_solid_color="#e3faea"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    app:bl_corners_topLeftRadius="6dp"
+                    app:bl_corners_topRightRadius="6dp"
+                    app:bl_gradient_angle="0"
+                    app:bl_gradient_endColor="#C1E17E"
+                    app:bl_gradient_startColor="#9AD08A">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:gravity="center|right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBlackSmall"
+                            android:layout_marginLeft="24dp"
+                            android:text="@{legalCurAccountViewModel.marginAmount}"/>
+
+                        <ImageView
+                            android:id="@+id/imgIsHideAccount"
+                            onClickCommand="@{legalCurAccountViewModel.hideAccountOnClickCommand}"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="16dp"
+                            android:src="@drawable/svg_show"/>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/textBlackLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:text="@{legalCurAccountViewModel.otcWalletTotalChar}"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        style="@style/textBlackSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="24dp"
+                        android:text="@{legalCurAccountViewModel.otcWalletTransChar}"
+                        android:textColor="@color/black21"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                style="@style/line_ccc"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/otc_wallet_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </com.spark.qtz.ui.progresslayout.ProgressLinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>
